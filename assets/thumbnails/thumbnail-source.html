@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+    <link rel="canonical" href="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail-source.html">
+    <meta property="og:title" content="AI ROASTING · 비즈니스 리더를 위한 Codex 완전 정복">
+    <meta property="og:description" content="비즈니스 리더를 위한 Codex 완전 정복. 작업 구상부터 코드 변경과 자동화까지 5단계 실전 가이드">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail.png">
+    <meta property="og:url" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail-source.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI ROASTING · 비즈니스 리더를 위한 Codex 완전 정복">
+    <meta name="twitter:description" content="비즈니스 리더를 위한 Codex 완전 정복. 작업 구상부터 코드 변경과 자동화까지 5단계 실전 가이드">
+    <meta name="twitter:image" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail.png">
+<title>Thumbnail</title>
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('../fonts/PretendardVariable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    /* index 헤더 계열 인디고 네이비 (영상 밝기를 반영해 한 단계 밝게) */
+    background:
+      radial-gradient(115% 135% at 80% -15%, rgba(110,122,224,0.42) 0%, rgba(110,122,224,0) 55%),
+      linear-gradient(135deg, #1C2250 0%, #283071 55%, #343E8C 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    word-break: keep-all;
+  }
+  /* 미세 도트 그리드 텍스처 */
+  body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.055) 1.1px, transparent 1.2px);
+    background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(115deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 60%, transparent 80%);
+    mask-image: linear-gradient(115deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 60%, transparent 80%);
+    pointer-events: none;
+  }
+  /* 상단 라벤더 빛 띠 */
+  body::after {
+    content: '';
+    position: absolute; left: 0; right: 0; top: 0; height: 5px;
+    background: linear-gradient(90deg, #7E84EC 0%, #B8C5FF 38%, #5762D6 100%);
+    pointer-events: none;
+  }
+
+  .stage {
+    position: relative;
+    z-index: 2;
+    padding: 0 84px;
+    width: 100%;
+    max-width: 760px;
+  }
+
+  /* 브랜드 락업 */
+  .brand {
+    display: inline-flex; align-items: center; gap: 11px;
+    margin-bottom: 30px;
+  }
+  .brand-logo {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: block;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.12);
+  }
+  .brand-name {
+    color: rgba(255,255,255,0.92);
+    font-size: 17px; font-weight: 800;
+    letter-spacing: 0.26em;
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    color: #C9D0FF;
+    font-size: 19px; font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 20px;
+  }
+  .eyebrow .prompt {
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+    color: #8E97FF; font-weight: 800;
+  }
+
+  .title {
+    color: #ffffff;
+    font-size: 62px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.14;
+    text-shadow: 0 2px 24px rgba(10,12,40,0.45);
+  }
+  .title .accent {
+    background: linear-gradient(120deg, #AEB6FF 0%, #8E97FF 50%, #C7CEFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subtitle {
+    color: rgba(255,255,255,0.80);
+    font-size: 23px; font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-top: 22px;
+    line-height: 1.4;
+  }
+
+  /* 5단계 동선 플로우 */
+  .chips {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
+    margin-top: 34px;
+  }
+  .chip {
+    display: inline-flex; align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 15.5px; font-weight: 700;
+    color: #E6E9FF;
+    background: rgba(123,134,247,0.16);
+    border: 1px solid rgba(174,182,255,0.30);
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08);
+  }
+  .arrow {
+    color: rgba(174,182,255,0.55);
+    font-size: 15px; font-weight: 800;
+  }
+
+  /* 우측 코드/에이전트 모티프 */
+  .terminal {
+    position: absolute;
+    right: 70px; top: 50%;
+    transform: translateY(-50%) rotate(3deg);
+    width: 372px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(13,16,40,0.92) 0%, rgba(22,27,64,0.92) 100%);
+    border: 1px solid rgba(174,182,255,0.22);
+    box-shadow: 0 40px 90px rgba(6,8,28,0.55), inset 0 1px 0 rgba(255,255,255,0.07);
+    overflow: hidden;
+    z-index: 1;
+  }
+  .terminal-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #FF6B5E; }
+  .dot.y { background: #FFC24B; }
+  .dot.g { background: #5BD08A; }
+  .terminal-tab {
+    margin-left: 8px; color: rgba(255,255,255,0.45);
+    font-size: 12.5px; font-weight: 600;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  .terminal-body {
+    padding: 20px 22px 24px;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+    font-size: 14.5px; line-height: 1.85;
+  }
+  .line { white-space: nowrap; }
+  .c-prompt { color: #8E97FF; }
+  .c-cmd { color: #EDEFFF; }
+  .c-comment { color: rgba(255,255,255,0.34); }
+  .c-ok { color: #7BE0A6; }
+  .c-key { color: #C7CEFF; }
+  .cursor {
+    display: inline-block; width: 9px; height: 17px;
+    background: #AEB6FF; vertical-align: -3px; margin-left: 2px;
+    border-radius: 1px;
+  }
+
+  .footer-tag {
+    position: absolute;
+    left: 84px; bottom: 40px;
+    color: rgba(255,255,255,0.42);
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="brand">
+      <img class="brand-logo" src="../logos/logo1-white.png" alt="">
+      <span class="brand-name">AI ROASTING</span>
+    </div>
+    <div class="title">비즈니스 리더를 위한<br><span class="accent">Codex</span> 완전 정복</div>
+    <div class="eyebrow">AI와 함께 일하는 5단계 실전 가이드</div>
+    <div class="subtitle">복잡한 설정 없이, 자연어로 명령하면서 에이전트를 설계합니다</div>
+    <div class="chips">
+      <span class="chip">진단</span>
+      <span class="arrow">→</span>
+      <span class="chip">작업 환경</span>
+      <span class="arrow">→</span>
+      <span class="chip">첫 작업</span>
+      <span class="arrow">→</span>
+      <span class="chip">협업</span>
+      <span class="arrow">→</span>
+      <span class="chip">자동화</span>
+    </div>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="terminal-tab">codex</span>
+    </div>
+    <div class="terminal-body">
+      <div class="line"><span class="c-comment"># 말로 시키면 끝납니다</span></div>
+      <div class="line"><span class="c-prompt">$</span> <span class="c-key">"매출 데이터 정리해줘"</span></div>
+      <div class="line"><span class="c-ok">✓ 완료</span> <span class="c-cmd">표·요약까지</span></div>
+      <div class="line"><span class="c-prompt">$</span> <span class="c-key">"보고서 초안 써줘"</span><span class="cursor"></span></div>
+    </div>
+  </div>
+
+</body>
+</html>

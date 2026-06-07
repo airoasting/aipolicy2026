@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# 에디터/툴 로컬 설정
+.claude/
+node_modules/
+
+# 로컬 작업 백업
+backups/
+
+# 내부 작업 문서 (공개 제외 — 필요 시 별도 푸시)
+plan.md
+MEMORY.md
+
+# 카탈로그(index.html)에서 미사용인 3D 버전 스크립트
+kr_map.js
