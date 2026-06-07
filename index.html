@@ -44,22 +44,22 @@
   .petal:nth-child(5){background:var(--yellow);left:54px;top:64px}
   .ribbons{position:absolute;width:340px;height:420px;overflow:visible;pointer-events:none}
   .ribbon{position:absolute;width:520px;height:30px;transform:rotate(-22deg);transform-origin:left center;opacity:.92}
-  .ribbon:nth-child(1){background:var(--red);top:40px;left:-60px}
-  .ribbon:nth-child(2){background:var(--orange);top:84px;left:-60px}
+  .ribbon:nth-child(1){background:var(--green);top:40px;left:-60px}
+  .ribbon:nth-child(2){background:var(--red);top:84px;left:-60px}
   .ribbon:nth-child(3){background:var(--yellow);top:128px;left:-60px}
-  .ribbon:nth-child(4){background:var(--green);top:172px;left:-60px}
-  .ribbon:nth-child(5){background:var(--blue);top:216px;left:-60px}
+  .ribbon:nth-child(4){background:var(--blue);top:172px;left:-60px}
+  .ribbon:nth-child(5){background:var(--orange);top:216px;left:-60px}
   .seal{width:104px;height:104px;background:var(--ink);color:var(--paper);
     clip-path:polygon(50% 0,61% 21%,85% 15%,79% 39%,100% 50%,79% 61%,85% 85%,61% 79%,50% 100%,39% 79%,15% 85%,21% 61%,0 50%,21% 39%,15% 15%,39% 21%);
     display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;line-height:1}
   .seal b{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:26px}
   .seal span{font-size:8px;letter-spacing:.12em;margin-top:2px}
-  .stamp{display:inline-block;background:var(--red);color:var(--paper);font-family:"Big Shoulders Display",sans-serif;
+  .stamp{display:inline-block;background:var(--orange-dk);color:var(--paper);font-family:"Big Shoulders Display",sans-serif;
     font-weight:900;font-size:15px;letter-spacing:.06em;padding:6px 13px;transform:rotate(-3deg);border:1.5px solid var(--ink)}
   .spec{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
   .spec i{width:15px;height:15px;border:1.6px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:11px;font-weight:800}
   .micro{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);font-weight:700}
-  .kicker{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--sub);font-weight:700}
+  .kicker{font-size:13px;letter-spacing:.02em;text-transform:uppercase;color:var(--sub);font-weight:700}
 
   /* ===== 레트로 사진 필터 ===== */
   .photo-wrap{position:relative;overflow:hidden;background:var(--paper-dk)}
@@ -84,10 +84,56 @@
   .tape.tl{top:-12px;left:18px;transform:rotate(-18deg)}
   .tape.br{bottom:-12px;right:24px;transform:rotate(-16deg);background:rgba(63,139,196,.5)}
 
+  /* ===== MASTHEAD (최상단 한 줄) ===== */
+  #masthead{position:relative;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:11px clamp(40px,6vw,96px);background:var(--paper)}
+  #masthead .mh-brand{display:flex;flex-direction:column;align-items:flex-start;gap:5px;cursor:pointer}
+  #masthead .mh-row{display:flex;align-items:center;gap:14px}
+  #masthead .mh-sub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;text-align:center;font-size:11px;letter-spacing:.2em;color:var(--sub);font-weight:700;line-height:1;pointer-events:none}
+  #masthead .mh-logo{width:24px;height:24px;border-radius:50%;border:1.6px solid var(--ink);flex:none;display:block;
+    transition:transform .8s cubic-bezier(.34,.8,.3,1)}
+  #masthead .mh-brand:hover .mh-logo{transform:rotate(360deg)}
+  #masthead .mh-txt{font-family:"Big Shoulders Display","Pretendard Variable",sans-serif;
+    font-weight:900;font-size:clamp(12px,1.7vw,16px);letter-spacing:.02em;line-height:1;color:var(--ink);white-space:nowrap}
+  #masthead .mh-txt .mh-slash{color:var(--red);margin:0 .35em;font-weight:900}
+  /* hover 시 글자별 웨이브 (색 변화 없음) */
+  #masthead .mh-txt .wv{display:inline-block;will-change:transform}
+  #masthead .mh-brand:hover .mh-txt .wv{animation:mhWave 1.7s ease-in-out infinite;animation-delay:calc(var(--i,0)*.08s)}
+  @keyframes mhWave{0%,55%,100%{transform:translateY(0)}27%{transform:translateY(-0.42em)}}
+  @media(prefers-reduced-motion:reduce){#masthead .mh-brand:hover .mh-txt .wv{animation:none}}
+  /* 우측 액션: 소셜 + 프로젝트 소개 */
+  #masthead .mh-actions{display:flex;align-items:center;gap:7px;flex:none}
+  #masthead .soc{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;flex:none;
+    border:1.5px solid var(--ink);border-radius:6px;color:var(--ink);background:var(--paper);transition:background .15s,color .15s;text-decoration:none}
+  #masthead .soc:hover{background:var(--ink);color:var(--paper)}
+  #masthead .soc svg{width:14px;height:14px;display:block}
+  #masthead .soc + .soc{margin-left:0}
+  #masthead .projpill{display:inline-flex;align-items:center;gap:6px;height:28px;font-size:11px;font-weight:700;color:var(--sub);
+    background:transparent;border:1.2px dashed var(--ink);border-radius:6px;padding:0 12px;text-decoration:none;
+    letter-spacing:.01em;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+  #masthead .projpill::after{content:"↓";font-weight:800}
+  #masthead .projpill:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  @media(max-width:560px){
+    #masthead{gap:10px;padding-left:18px;padding-right:18px}
+    #masthead .mh-brand{gap:4px}
+    #masthead .mh-row{gap:10px}
+    #masthead .mh-logo{width:17px;height:17px}
+    #masthead .mh-txt{font-size:13px;white-space:normal}
+    #masthead .mh-sub{font-size:9.5px;letter-spacing:.16em}
+    /* 모바일: 로고 + 'AI 정책 카탈로그 2026'만 남기고 나머지 숨김 */
+    #masthead .mh-pre{display:none}
+    #masthead .mh-sub{display:none}
+    #masthead .mh-actions{display:none}
+    #masthead .mh-logo{width:20px;height:20px}
+    #masthead .mh-txt{font-size:15px}
+  }
+
   /* ===== STICKY TOP MENU ===== */
   #top{position:sticky;top:0;z-index:50;display:flex;flex-direction:column;gap:7px;
     padding:8px clamp(40px,6vw,96px);background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
-    box-shadow:0 6px 18px -14px rgba(58,37,22,.5)}
+    box-shadow:0 6px 18px -14px rgba(58,37,22,.5);transition:opacity .2s ease}
+  /* 표지 구간에서는 서브메뉴 숨김 → 요약(Executive Summary)부터 등장 */
+  #top.nav-prehide{opacity:0;visibility:hidden;pointer-events:none}
   #top .toprow1{display:flex;align-items:center;gap:16px;justify-content:space-between}
   #top .toptools{display:flex;align-items:center;gap:10px;flex:none}
   #top .modesw{display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;flex:none}
@@ -139,6 +185,22 @@
   #cover .trustkey{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
   #cover .trustkey .tk-label{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);font-weight:800;margin-right:4px}
   #cover .trustkey .trust{cursor:help;border-radius:999px;font-size:12px;padding:4px 12px}
+  /* 핵심 숫자 스트립 */
+  #cover .cover-stats{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(30px,5vw,68px);
+    margin-top:clamp(18px,2.6vh,30px);padding-top:clamp(14px,2vh,22px);border-top:2px solid var(--ink)}
+  #cover .cstat{display:flex;flex-direction:column;gap:3px}
+  #cover .cstat b{font-family:"Big Shoulders Display",sans-serif;font-weight:900;
+    font-size:clamp(42px,6vw,76px);line-height:.85;letter-spacing:-.02em;color:var(--orange-dk)}
+  #cover .cstat span{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--sub)}
+  /* 8개 분야 칩 */
+  #cover .cover-cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(14px,2.2vh,24px)}
+  #cover .ccat{font-family:inherit;font-size:12.5px;font-weight:800;color:var(--ink);background:var(--paper);
+    border:1.5px solid var(--ink);border-radius:999px;padding:6px 9px 6px 15px;cursor:pointer;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s}
+  #cover .ccat:hover{background:var(--ink);color:var(--paper)}
+  #cover .ccat-n{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:18px;padding:0 5px;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;background:var(--ink);color:var(--paper);border-radius:999px}
+  #cover .ccat:hover .ccat-n{background:var(--paper);color:var(--ink)}
   #cover .byrow{display:flex;align-items:center;justify-content:flex-start;gap:14px;flex-wrap:wrap;margin-top:18px}
   #cover .bybrand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
   #cover .bybrand img{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink)}
@@ -153,7 +215,7 @@
     border:1.5px solid var(--ink);border-radius:6px;color:var(--ink);background:var(--paper);transition:background .15s,color .15s;text-decoration:none}
   #cover .soc:hover{background:var(--ink);color:var(--paper)}
   #cover .soc svg{width:14px;height:14px;display:block}
-  #cover .soc + .soc{margin-left:-8px}
+  #cover .soc + .soc{margin-left:-3px}
   #cover .cf-stamp, #exsum .ex-head .stamp, #colophon .cl-top .stamp{background:var(--orange-dk)}
   #exsum .ex-op .ex-oplabel .stamp{background:var(--yellow);color:var(--ink)}
   /* 마우스오버 커스텀 툴팁 */
@@ -176,7 +238,7 @@
   #tipbubble.on{opacity:1;visibility:visible}
   #cover{padding-bottom:clamp(180px,23vh,250px)}
   #cover .cover-foot{position:absolute;left:clamp(40px,6vw,96px);right:clamp(40px,6vw,96px);
-    bottom:clamp(34px,5vh,56px);display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
+    bottom:clamp(24px,3.5vh,40px);display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
   #cover .cf-browse{display:flex;flex-direction:column;gap:10px;flex:1;min-width:300px}
   #cover .cf-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   #cover .cover-sb{display:flex;align-items:center;gap:7px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:0 14px;width:min(360px,100%)}
@@ -191,15 +253,23 @@
   #cover .cf-modebtn span{font-size:11px;font-weight:700;opacity:.6}
   #cover .cf-stamp{flex:none;margin-bottom:2px}
   /* ===== COVER ===== */
-  #cover{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;
-    padding:clamp(40px,6vw,96px);overflow:hidden}
+  #cover{min-height:calc(100vh - var(--mhH,64px));position:relative;display:flex;flex-direction:column;justify-content:flex-start;
+    padding:clamp(40px,6vw,96px);padding-top:clamp(26px,4vh,52px);overflow:hidden}
   #cover .petals{top:clamp(70px,9vh,120px);left:clamp(40px,6vw,96px)}
-  #cover .ribbons{top:8%;right:-40px;opacity:.9}
-  #cover .lock{position:absolute;top:clamp(70px,9vh,120px);right:clamp(40px,6vw,96px);text-align:right;mix-blend-mode:multiply}
-  #cover .lock .b1{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em}
-  #cover .lock .b2{font-size:12px;letter-spacing:.2em;color:var(--sub);font-weight:700;margin-top:3px}
+  #cover .ribbons{top:-58px;right:-40px;opacity:.9}
+  #cover .lock{position:absolute;top:0;right:clamp(40px,6vw,96px);text-align:right}
+  #cover .lock .b1{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em;
+    background:linear-gradient(100deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--red));
+    background-size:200% auto;-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;animation:flowText 5s linear infinite}
+  #cover .lock .b2{font-size:12px;letter-spacing:.2em;font-weight:700;margin-top:3px;
+    background:linear-gradient(100deg,var(--sub),var(--ink),var(--sub));background-size:200% auto;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+    animation:flowText 6s linear infinite}
+  @keyframes flowText{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @media(prefers-reduced-motion:reduce){#cover .lock .b1,#cover .lock .b2{animation:none}}
   #cover .hero{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(64px,15vw,230px);
-    line-height:.82;letter-spacing:-.03em;margin:2vh 0}
+    line-height:.82;letter-spacing:-.03em;margin:.6vh 0}
   #cover .hero em{color:var(--orange-dk)}
   #cover h1{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(26px,4.4vw,64px);
     line-height:.92;letter-spacing:-.02em;white-space:nowrap}
@@ -215,7 +285,7 @@
 
   /* ===== REGION SPREAD ===== */
   .spread{position:relative;border-top:2px solid var(--ink)}
-  #deck .spread:first-child,#catdeck .catsec:first-child{border-top:none}
+  #catdeck .catsec:first-child{border-top:none}
   .hero-band{min-height:100vh;position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;overflow:visible}
   .hb-text{padding-top:clamp(56px,7vh,96px);padding-bottom:clamp(36px,4.5vw,72px)}
   .hb-visual{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(40px,5vw,90px)}
@@ -230,6 +300,10 @@
   .face .photo-wrap{width:100%;height:100%;border-radius:50%}
   .face .photo-wrap::after{display:none}
   .face .photo-wrap img{filter:grayscale(1) contrast(1.04);object-position:50% 14%}
+  /* 개별 프로필 보정 */
+  .face .photo-wrap img[data-leader="허태정"],
+  .face .photo-wrap img[data-leader="이철우"],
+  .face .photo-wrap img[data-leader="박완수"]{object-position:50% 4%}
   .code-chip{position:absolute;left:-10px;top:-14px;z-index:5}
   .hb-text{position:relative;display:flex;flex-direction:column;justify-content:safe center;
     padding:clamp(36px,4.5vw,72px) clamp(36px,5vw,86px) clamp(36px,4.5vw,72px) clamp(8px,2vw,30px);
@@ -307,7 +381,41 @@
     border:1.5px solid var(--ink);border-radius:6px;color:var(--ink);background:var(--paper);transition:background .15s,color .15s;text-decoration:none}
   #colophon .soc:hover{background:var(--ink);color:var(--paper)}
   #colophon .soc svg{width:14px;height:14px;display:block}
-  #colophon .soc + .soc{margin-left:-8px}
+  #colophon .soc + .soc{margin-left:-7px}
+  /* 갱신일 스탬프 */
+  #colophon .cl-ver{font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sub);border:1.5px solid var(--paper-dk);border-radius:999px;padding:5px 12px}
+  /* 숫자로 보는 검증 스트립 */
+  #colophon .cl-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;max-width:960px;
+    border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--paper-dk)}
+  #colophon .cl-stats .st{flex:1 1 120px;padding:16px 18px;background:var(--paper);
+    border-right:1.5px solid var(--paper-dk);display:flex;flex-direction:column;gap:3px}
+  #colophon .cl-stats .st:last-child{border-right:0}
+  #colophon .cl-stats .st b{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(24px,2.6vw,34px);
+    line-height:1;color:var(--ink)}
+  #colophon .cl-stats .st.cut b{color:var(--red)} #colophon .cl-stats .st.add b{color:var(--green)}
+  #colophon .cl-stats .st span{font-size:11px;letter-spacing:.04em;color:var(--sub);font-weight:600}
+  /* 파이프라인 한 줄 */
+  #colophon .cl-pipe{font-size:12.5px;color:var(--sub);margin-top:14px;line-height:1.6;word-break:keep-all}
+  #colophon .cl-pipe b{color:var(--orange-dk);font-weight:800}
+  /* 4칸 그리드(왜/무엇/어떻게/만든사람) */
+  #colophon .foot4{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:40px;max-width:1040px}
+  #colophon .foot4 .micro{margin-bottom:8px}
+  #colophon .foot4 p{font-size:13px;color:#5a4730;line-height:1.6;word-break:keep-all}
+  /* 이렇게 읽으세요 */
+  #colophon .cl-howto{margin-top:40px;max-width:960px;border-left:3px solid var(--orange-dk);padding-left:18px}
+  #colophon .cl-howto .micro{margin-bottom:12px}
+  #colophon .cl-howto ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  #colophon .cl-howto li{font-size:13px;color:#5a4730;line-height:1.55;word-break:keep-all;display:flex;gap:9px;align-items:baseline}
+  #colophon .cl-howto li b{color:var(--ink);font-weight:800;flex:none}
+  /* 면책 고지 정식 블록 */
+  #colophon .cl-legal{margin-top:44px;max-width:1040px;border-top:1.5px solid var(--paper-dk);padding-top:26px}
+  #colophon .cl-legal .micro{margin-bottom:16px}
+  #colophon .cl-legal dl{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 36px;margin:0}
+  #colophon .cl-legal .li{display:flex;flex-direction:column;gap:3px}
+  #colophon .cl-legal dt{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  #colophon .cl-legal dd{margin:0;font-size:12px;color:var(--sub);line-height:1.55;word-break:keep-all}
+  #colophon .cl-legal dd a{color:var(--orange-dk);font-weight:700}
 
   /* reveal */
   .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
@@ -329,14 +437,35 @@
   #exsum .ex-note{font-size:13.5px;color:var(--sub);line-height:1.6;margin:18px 0 32px;max-width:none;
     border-left:3px solid var(--ink);padding-left:12px;font-weight:600;white-space:nowrap}
   #exsum .ex-note b{color:var(--ink);font-weight:800}
-  #exsum .ex-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:24px 34px;margin-top:clamp(34px,4.5vw,56px)}
-  #exsum .ex-list li{display:flex;gap:15px;align-items:flex-start;border-top:2px solid var(--ink);padding-top:15px}
-  #exsum .exn{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:36px;line-height:.78;flex:none;color:var(--ink)}
-  #exsum .ex-list li:nth-child(1) .exn{color:var(--red)}
-  #exsum .ex-list li:nth-child(2) .exn{color:var(--orange)}
-  #exsum .ex-list li:nth-child(3) .exn{color:var(--green)}
-  #exsum .ex-list li:nth-child(4) .exn{color:var(--blue)}
-  #exsum .ex-list h3{font-size:16.5px;font-weight:800;margin-bottom:7px;letter-spacing:-.01em}
+  #exsum .ex-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:clamp(30px,4vw,48px)}
+  #exsum .ex-list li{display:block;border:2px solid var(--ink);background:var(--paper);
+    box-shadow:6px 8px 0 rgba(58,37,22,.13);padding:20px clamp(18px,2.4vw,26px) 22px;position:relative;
+    transition:transform .22s cubic-bezier(.34,.8,.3,1),box-shadow .22s cubic-bezier(.34,.8,.3,1)}
+  #exsum .ex-list li:hover{transform:translate(-3px,-5px)}
+  #exsum .ex-list li>div{display:block}
+  #exsum .exn{display:inline-block;font-family:"Big Shoulders Display",sans-serif;font-weight:900;
+    font-size:16px;line-height:1;letter-spacing:.05em;color:#fff;background:var(--ink);
+    border:1.6px solid var(--ink);padding:5px 13px;margin-bottom:14px;transform:rotate(-2deg);
+    transition:transform .22s cubic-bezier(.34,.8,.3,1)}
+  #exsum .ex-list li:hover .exn{transform:rotate(1deg) scale(1.08)}
+  #exsum .ex-list li:nth-child(1){box-shadow:6px 8px 0 rgba(199,57,42,.18)}
+  #exsum .ex-list li:nth-child(1):hover{box-shadow:11px 15px 0 rgba(199,57,42,.32)}
+  #exsum .ex-list li:nth-child(1) .exn{background:var(--red);color:#fff}
+  #exsum .ex-list li:nth-child(2){box-shadow:6px 8px 0 rgba(210,103,12,.18)}
+  #exsum .ex-list li:nth-child(2):hover{box-shadow:11px 15px 0 rgba(210,103,12,.32)}
+  #exsum .ex-list li:nth-child(2) .exn{background:var(--orange);color:var(--ink)}
+  #exsum .ex-list li:nth-child(3){box-shadow:6px 8px 0 rgba(60,120,70,.18)}
+  #exsum .ex-list li:nth-child(3):hover{box-shadow:11px 15px 0 rgba(60,120,70,.32)}
+  #exsum .ex-list li:nth-child(3) .exn{background:var(--green);color:#fff}
+  #exsum .ex-list li:nth-child(4){box-shadow:6px 8px 0 rgba(63,139,196,.2)}
+  #exsum .ex-list li:nth-child(4):hover{box-shadow:11px 15px 0 rgba(63,139,196,.34)}
+  #exsum .ex-list li:nth-child(4) .exn{background:var(--blue);color:#fff}
+  @media(prefers-reduced-motion:reduce){
+    #exsum .ex-list li,#exsum .ex-list li .exn{transition:none}
+    #exsum .ex-list li:hover{transform:none}
+    #exsum .ex-list li:hover .exn{transform:rotate(-2deg)}
+  }
+  #exsum .ex-list h3{font-size:17px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
   #exsum .ex-list p{font-size:13.5px;color:#43331f;line-height:1.64}
   #exsum .ex-list em{color:var(--red);font-style:normal;font-weight:700}
   #exsum .ex-op{margin-top:clamp(48px,5.5vw,68px);border:2px solid var(--ink);background:var(--paper);
@@ -400,7 +529,7 @@
 
     /* #top → 래퍼 안에서 우측 슬라이드 패널 */
     #top{position:absolute;top:0;right:0;bottom:0;left:auto;width:min(86vw,360px);
-      flex-direction:column;align-items:stretch;gap:14px;padding:70px 18px 44px;
+      flex-direction:column;align-items:stretch;gap:10px;padding:60px 18px 30px;
       overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
       pointer-events:auto;
       background:var(--paper);border:none;border-left:2px solid var(--ink);border-radius:0;
@@ -418,35 +547,42 @@
     #top .brand{font-size:19px;white-space:normal}
     #top .brand-yr{display:inline}
 
-    #top .navjump{order:2;display:flex;gap:10px}
-    #top .navjump button{flex:1;padding:12px 10px;font-size:14.5px;border-radius:12px}
+    #top .navjump{order:2;display:flex;gap:8px}
+    #top .navjump button{flex:1;padding:9px 10px;font-size:14px;border-radius:11px}
 
     #top .mlbl{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;
-      text-transform:uppercase;color:var(--sub);margin:8px 0 -3px}
+      text-transform:uppercase;color:var(--sub);margin:4px 0 -4px}
     #top .mlbl-search{order:3}
     #top .mlbl-toggle{order:5}
     #top .mlbl-menu{order:7}
 
     #top .searchbox{order:4;width:100%;padding:2px 16px;border-radius:12px}
     #top .searchbox svg{width:16px;height:16px}
-    #top .searchbox input{width:auto;flex:1;font-size:16px;padding:13px 0}
+    #top .searchbox input{width:auto;flex:1;font-size:16px;padding:10px 0}
 
     #top .search-go{order:4;display:block;width:100%;margin-top:-2px;font:inherit;font-weight:800;
       font-size:14px;color:var(--paper);background:var(--ink);border:1.5px solid var(--ink);
-      border-radius:12px;padding:12px;cursor:pointer;text-align:center}
+      border-radius:12px;padding:10px;cursor:pointer;text-align:center}
     #top .search-go[hidden]{display:none}
     #top .search-go.empty{background:var(--paper);color:var(--sub);cursor:default}
 
     #top .modesw{order:6;width:100%;border-radius:12px}
-    #top .modesw button{flex:1;padding:13px 0;font-size:15px}
+    #top .modesw button{flex:1;padding:10px 0;font-size:14.5px}
 
-    #top #regnav{order:8;display:flex;flex-wrap:wrap;overflow:visible;gap:9px;flex:none;padding:0}
+    #top #regnav{order:8;display:flex;flex-wrap:wrap;overflow:visible;gap:7px;flex:none;padding:0}
     #top #regnav.fill{justify-content:flex-start}
-    #top .pill{font-size:14px;padding:10px 10px 10px 14px}
+    #top .pill{font-size:14px;padding:8px 10px 8px 13px}
     #top .pill b{font-size:11px}
 
     /* 좌우 여백 확대 (모바일 공통) */
-    #exsum{padding-left:28px;padding-right:28px}
+    #exsum{padding:18px 28px 34px}
+    #exsum .ex-head{margin-bottom:14px}
+    #exsum .ex-title{margin-bottom:0}
+    #exsum .ex-list{margin-top:22px;gap:14px}
+    #exsum .ex-list li{padding:16px 18px 18px}
+    #exsum .exn{margin-bottom:10px}
+    #exsum .ex-list h3{font-size:16px;margin-bottom:6px}
+    #exsum .ex-list p{font-size:13px;line-height:1.6}
     .hb-text{padding-left:28px;padding-right:28px}
     .hb-visual{padding-left:28px;padding-right:28px}
 
@@ -454,6 +590,7 @@
     #cover{padding:48px 28px 56px;min-height:auto}
     #cover h1{white-space:normal}
     #cover .m-hide{display:none}
+    #cover .cover-cats{display:none}
     #cover .hero{font-size:clamp(58px,21vw,96px);margin:14px 0}
     #cover .pinkbar{order:1}
     #cover .cover-foot{order:2;position:static;left:auto;right:auto;bottom:auto;margin-top:22px}
@@ -472,9 +609,12 @@
     #exsum .ex-note{white-space:normal}
 
     /* 콜로폰(프로젝트 소개) */
-    #colophon{padding:52px 28px 64px}
+    #colophon{padding:32px 28px 64px}
     #colophon .ribbons,#colophon .petals{display:none}
     #colophon .foot3{grid-template-columns:1fr;gap:22px;margin-top:30px}
+    #colophon .foot4{grid-template-columns:1fr;gap:22px;margin-top:30px}
+    #colophon .cl-stats .st{flex:1 1 44%}
+    #colophon .cl-legal dl{grid-template-columns:1fr;gap:14px}
 
     /* === P3: 지역 헤더 압축 — 사진 줄이고 정책이 빨리 보이게 === */
     .hero-band{min-height:auto}
@@ -518,7 +658,7 @@
         linear-gradient(var(--ink) 0 0) 0 5px/100% 2px no-repeat,
         linear-gradient(var(--ink) 0 0) 0 10px/100% 2px no-repeat}
     #mobnavLoc::after{content:"▾";margin-left:auto;font-size:13px;opacity:.65;flex:none;padding-left:10px}
-    #mobnavLocText{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:none}
+    #mobnavLocText{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0;text-align:left}
     #mobnavLoc .mobnav-count{flex:none;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
       background:var(--ink);color:var(--paper);border-radius:999px;padding:2px 8px;min-width:22px;text-align:center}
     #mobnavLoc .mobnav-count[hidden]{display:none}
@@ -534,11 +674,91 @@
     .rv{opacity:1!important;transform:none!important}
     #cue{animation:none}
   }
+  /* ===== LANDSCAPE: 비교 격자 + 건수 지도 ===== */
+  #landscape{padding:48px clamp(20px,6vw,96px) 8px;border-top:2px solid var(--ink)}
+  #landscape .ls-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  .ls-block{margin-bottom:42px}
+
+  /* 비교 격자 */
+  .mx-cap{font-size:13px;color:var(--sub);line-height:1.55;margin:0 0 14px;max-width:780px}
+  .mx-cap b{color:var(--ink)}
+  .mx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .mx-swipe{display:none;font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--sub);margin:-2px 0 10px;text-align:center}
+  table.mx{border-collapse:collapse;font-size:12px;min-width:560px;width:100%;table-layout:fixed}
+  table.mx th.mx-rh,table.mx td.mx-r{width:72px}
+  table.mx th{font-weight:800;color:var(--sub);padding:5px 3px;text-align:center;vertical-align:bottom;font-size:10px;line-height:1.18;white-space:normal;word-break:keep-all}
+  table.mx th.mx-rh{white-space:nowrap}
+  table.mx th.mx-rh{text-align:left}
+  th.mx-ch{cursor:pointer;border-bottom:1.5px solid var(--ink)}
+  th.mx-ch:hover,th.mx-ch:focus-visible{color:var(--ink);background:var(--paper-dk);outline:none}
+  th.mx-ch.mx-sum{cursor:default}
+  table.mx td{border:1px solid var(--paper-dk);text-align:center;height:30px;font-weight:800;font-variant-numeric:tabular-nums;padding:0}
+  td.mx-r{cursor:pointer;text-align:left;white-space:nowrap;padding:0 10px 0 6px;font-size:11.5px;background:var(--paper)}
+  td.mx-r:hover,td.mx-r:focus-visible{background:var(--paper-dk);outline:none}
+  .mx-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .mx-dot.dem{background:var(--blue)} .mx-dot.ppp{background:var(--red)}
+  td.mx-c a{display:block;width:100%;height:30px;line-height:30px;text-decoration:none;color:inherit}
+  td.mx-c a:hover,td.mx-c a:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+  td.mx-c.v0{color:#cdbb93;background:var(--paper)}
+  td.mx-c.v1{background:#F6D9A8;color:var(--sub)}
+  td.mx-c.v2{background:#EFA94A;color:var(--ink)}
+  td.mx-c.v3{background:#D2670C;color:#fff}
+  td.mx-tot{background:var(--ink);color:var(--paper)}
+  td.mx-coltot{background:#7a6243;color:var(--paper)}
+  tr.mxfoot td{font-weight:900}
+  .mx-legend{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;color:var(--sub);flex-wrap:wrap}
+  .mx-legend i{width:18px;height:13px;display:inline-block;border:1px solid var(--paper-dk)}
+  .mx-legend i.v0{background:var(--paper)} .mx-legend i.v1{background:#F6D9A8} .mx-legend i.v2{background:#EFA94A} .mx-legend i.v3{background:#D2670C}
+  .mx-party{display:flex;align-items:center;gap:6px}
+  .mx-scale{margin-left:auto;display:flex;align-items:center;gap:6px}
+
+  /* 건수 지도 */
+  #countmap{margin-top:clamp(34px,5vw,64px)}
+  .cm-wrap{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap}
+  .cm-svgbox{position:relative;flex:1 1 320px;max-width:440px}
+  .cm-svg{width:100%;height:auto;display:block}
+  .cm-p{stroke:var(--ink);stroke-width:.7;cursor:pointer;transition:fill-opacity .15s,stroke-width .15s}
+  .cm-p.dem{fill:var(--blue)} .cm-p.ppp{fill:var(--red)}
+  .cm-p:hover,.cm-p.cm-hi,.cm-p:focus-visible{fill-opacity:1 !important;stroke-width:1.6;outline:none}
+  .cm-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-size:12px;padding:6px 9px;border-radius:4px;transform:translate(10px,-120%);white-space:nowrap;z-index:5;line-height:1.4}
+  .cm-side{flex:1 1 240px;min-width:220px}
+  .cm-note{font-size:12px;color:var(--sub);line-height:1.55;margin:8px 0 14px}
+  .cm-note em{color:var(--red);font-style:normal}
+  .cm-rank{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .cm-rankbtn{display:flex;justify-content:space-between;align-items:center;width:100%;gap:8px;font-family:inherit;font-size:12px;font-weight:800;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+  .cm-rankbtn:hover{background:var(--paper-dk)}
+  .cm-rankbtn b{font-variant-numeric:tabular-nums}
+  .cm-rankbtn.dem b{color:var(--blue)} .cm-rankbtn.ppp b{color:var(--red)}
+
+  @media(max-width:768px){
+    #landscape{padding:36px 16px 4px}
+    .cm-wrap{gap:18px}
+  }
 </style>
 </head>
 <body>
 <div id="loader">L O A D I N G</div>
 <div id="grain"></div><div id="vign"></div>
+
+<!-- ===== MASTHEAD ===== -->
+<div id="masthead">
+  <span class="mh-sub">제9회 전국동시지방선거 · 2026.06 · 인공지능 정책 모음집</span>
+  <div class="mh-brand">
+    <div class="mh-row">
+      <img class="mh-logo" src="assets/logos/logo1-transparent.png" alt="AI ROASTING 로고" />
+      <span class="mh-txt"><span class="mh-pre">AI ROASTING<span class="mh-slash">/</span></span>AI 정책 카탈로그 2026</span>
+    </div>
+  </div>
+  <div class="mh-actions">
+    <a class="soc" href="https://www.linkedin.com/in/jayden-kang/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+    <a class="soc" href="https://www.facebook.com/jayden.kang" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+    </a>
+    <a class="projpill" href="#colophon">프로젝트 소개</a>
+  </div>
+</div>
 
 <!-- 레트로 듀오톤 SVG 필터 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -593,34 +813,30 @@
 
 <!-- ===== COVER ===== -->
 <section id="cover">
-  <div class="petals"><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span></div>
-  <div class="ribbons"><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span></div>
-  <div class="lock">
-    <div class="b1">AI 정책 카탈로그 2026</div>
-    <div class="b2">제9회 전국동시지방선거 · 2026.06</div>
-  </div>
   <div class="hero disp">AI <em>2026</em></div>
   <h1>16개 지역 <span class="m-hide">시장·도지사의 </span><span class="hl">인공지능 공약</span></h1>
   <div class="pinkbar"><span class="m-hide">2026년 </span>6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약을 <span class="m-hide">출처와 함께 </span>정리했습니다.</div>
-  <p class="cdisc">공약은 후보와 당선인의 발표 및 보도를 기준으로 정리했으며, 취임 이후 달라질 수 있습니다. 사진은 Wikimedia Commons의 실사를 레트로 듀오톤으로 가공했습니다. 각 정책은 출처 링크를 통해 확인해주세요.</p>
+  <p class="cdisc">공약은 후보와 당선인의 발표 및 보도를 기준으로 정리했으며, 취임 이후 달라질 수 있습니다. 사진은 Wikimedia Commons의 실사를 레트로 듀오톤으로 가공한 것입니다. 각 정책은 출처 링크에서 직접 확인해주세요.</p>
   <div class="trustkey">
     <span class="tk-label">출처 신뢰도</span>
     <span class="trust t-직접인용" tabindex="0" role="button" data-tip="후보·당선인이 직접 발언했거나 공약집에 명시한 내용을 그대로 인용. 신뢰도 최상">직접인용</span>
     <span class="trust t-보도확인" tabindex="0" role="button" data-tip="본인 발언은 아니지만 언론 보도로 교차 확인된 내용">보도확인</span>
     <span class="trust t-단일출처" tabindex="0" role="button" data-tip="출처가 한 곳뿐이라 교차검증이 안 된 내용 (주의)">단일출처</span>
   </div>
-  <div class="byrow">
-    <div class="bybrand">
-      <img src="assets/logos/logo1-transparent.png" alt="AI ROASTING" />
-      <span><em>AI</em> ROASTING</span>
-    </div>
-    <a class="soc" href="https://www.linkedin.com/in/jayden-kang/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-    </a>
-    <a class="soc" href="https://www.facebook.com/jayden.kang" target="_blank" rel="noopener" aria-label="Facebook" data-tip="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-    </a>
-    <a class="projpill" href="#colophon">프로젝트 소개</a>
+  <div class="cover-stats">
+    <div class="cstat"><b>16</b><span>시·도</span></div>
+    <div class="cstat"><b>8</b><span>정책 분야</span></div>
+    <div class="cstat"><b id="statPol">108</b><span>AI 공약</span></div>
+  </div>
+  <div class="cover-cats" aria-label="8개 정책 분야 · 클릭하면 분야별로 보기">
+    <button class="ccat" data-cat="AI인프라">AI 인프라</button>
+    <button class="ccat" data-cat="AI산업전환">AI 산업전환</button>
+    <button class="ccat" data-cat="AI신산업·R&D">AI 신산업·R&D</button>
+    <button class="ccat" data-cat="행정혁신">행정혁신</button>
+    <button class="ccat" data-cat="인재·교육">인재·교육</button>
+    <button class="ccat" data-cat="시민일상·복지">시민일상·복지</button>
+    <button class="ccat" data-cat="안전·데이터권익">안전·데이터권익</button>
+    <button class="ccat" data-cat="분배·공공성">분배·공공성</button>
   </div>
   <div class="cover-foot">
     <div class="cf-browse">
@@ -631,37 +847,6 @@
     </div>
     <span class="stamp cf-stamp">Researched and Designed by Claude Opus 4.8</span>
   </div>
-</section>
-
-<!-- ===== EXECUTIVE SUMMARY ===== -->
-<section id="exsum">
-  <div class="ex-head">
-    <span class="stamp">EXECUTIVE SUMMARY</span>
-    <span class="kicker">16개 시·도 · 106건 AI 공약 대상</span>
-  </div>
-  <h2 class="ex-title">16개 시·도의 106개 AI 공약은 ‘투자 경쟁’에 쏠려 있지만,<br>‘AI 시대에 인간은 무엇을 해야 하나’라는 질문은 <em>드뭅니다</em>.</h2>
-  <ol class="ex-list">
-    <li><span class="exn">01</span><div>
-      <h3>가장 눈에 띈 공약</h3>
-      <p>요즘 세계의 화두는 “로봇이 일을 대신하면 인간은 무엇을 할 것인가”입니다. 김상욱 울산 시장 당선자는 현대차의 아틀라스 같은 로봇을 <a class="pl" href="#pol-6-1">노동자·시민 조합이 직접 소유하게 하자</a>고 제안했습니다. 구체적인 실행 가능성은 더 따져봐야겠지만, 시민이 일자리를 빼앗기는 쪽이 아니라 로봇의 주인이 되도록 하자는 구상입니다. 106건 가운데 이 질문을 가장 정면으로 다룬 공약입니다.</p>
-    </div></li>
-    <li><span class="exn">02</span><div>
-      <h3>나머지는 모두 투자 경쟁</h3>
-      <p>여러 지역이 ‘AI 수도’를 내걸었습니다. 충남은 <a class="pl" href="#pol-11-0">‘대한민국 AI 수도’</a>, 전남광주는 <a class="pl" href="#pol-4-0">‘AI 반도체 수도’</a>, 전북은 <a class="pl" href="#pol-12-0">‘피지컬 AI 수도’</a>, 인천은 <a class="pl" href="#pol-3-3">‘글로벌 물류 AI 수도’</a>를 외쳤습니다. 부산은 5년간 10조 원을 들여 <a class="pl" href="#pol-1-0">AI 데이터센터 클러스터</a>를, 서울은 양재에 <a class="pl" href="#pol-0-2">27만㎡ AI 테크시티</a>를 약속했습니다. 그중 가장 손에 잡히는 건 서울이 예고한 <a class="pl" href="#pol-0-1">2026년 10월 ‘국내 최초·세계 세 번째’ 레벨4 무인 로보택시 도심 운행</a>입니다. 106건 중 <em>65%(69건)</em>가 이런 인프라·산업 투자 공약입니다.</p>
-    </div></li>
-    <li><span class="exn">03</span><div>
-      <h3>비어 있는 자리</h3>
-      <p>정작 시민이 직접 쓰는 공약은 드뭅니다. <a class="pl" href="#pol-8-4">경기도의 디지털 성범죄 영상물 삭제 지원</a>, <a class="pl" href="#pol-4-3">전남광주의 시민효능감지수</a> 정도가 눈에 띌 뿐, 복지·안전·데이터 권익을 합쳐도 <em>15%(16건)</em>에 그칩니다. 사람의 몫을 묻는 분배 공약은 <a class="pl" href="#pol-6-1">울산(로봇조합)</a>·<a class="pl" href="#pol-4-6">전남광주(20조 원 ‘8:1:1’ 배분)</a>·<a class="pl" href="#pol-11-3">충남(직무전환 수당)</a>·<a class="pl" href="#pol-15-1">제주(1조 원 도민주권 혁신펀드)</a> 4건뿐입니다. 시민 개개인의 AI 활용력(AI 리터러시)을 키우겠다는 공약은 더 드물어, 전 연령을 아우른 곳은 <a class="pl" href="#pol-11-5">충남 ‘연령·직업별 맞춤형 AI 교육’</a>이 사실상 유일합니다.</p>
-    </div></li>
-    <li><span class="exn">04</span><div>
-      <h3>절반은 아직 ‘말 뿐’</h3>
-      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 닮았고, 금액만 키웠습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). <a class="pl" href="#pol-12-1">전북의 ‘경제부지사 신설’이나 ‘1,500억 투입’</a>처럼 출처가 확인되지 않은 항목도 <em>28%(30건)</em>에 이르고, AI 전담 조직을 갖추겠다고 공약한 곳은 <em>16곳 중 9곳</em>뿐입니다(서울·부산·인천·대전·세종·경기·전북·제주·전남광주).</p>
-    </div></li>
-  </ol>
-  <aside class="ex-op">
-    <div class="ex-oplabel"><span class="stamp">시민의 시선</span><h3>광역단체장께 드리는 당부</h3></div>
-    <p>데이터센터와 펀드의 규모보다, 그 안에서 시민이 무슨 일을 하며 살아갈지가 더 중요합니다. <a class="pl" href="#pol-8-0">경기도 ‘도지사 직속 AI 수석’</a>이나 <a class="pl" href="#pol-5-1">대전 ‘시장 직속 AI 전략기구’</a>처럼 끝까지 책임질 실행 조직을 먼저 세우고, “AI 시대, 인간은 무엇을 해야 하나”라는 질문을 임기 내내 기억해 주십시오.</p>
-  </aside>
 </section>
 
 <div id="drawerWrap"><header id="top">
@@ -682,8 +867,8 @@
   <div class="toprow2">
     <nav class="regnav" id="regnav" aria-label="바로가기"></nav>
     <div class="navjump">
-      <button id="jumpSum" type="button" data-tip="Executive Summary로 이동">요약</button>
-      <button id="jumpIntro" type="button" data-tip="프로젝트 소개로 이동">소개</button>
+      <button id="jumpSum" type="button">요약</button>
+      <button id="jumpIntro" type="button">소개</button>
     </div>
   </div>
   <span class="mlbl mlbl-search">검색</span>
@@ -691,23 +876,78 @@
   <span class="mlbl mlbl-menu">바로가기 메뉴</span>
 </header></div>
 
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section id="exsum">
+  <div class="ex-head">
+    <span class="stamp">EXECUTIVE SUMMARY</span>
+    <span class="kicker">16개 시·도 · 108건 AI 공약 대상</span>
+  </div>
+  <h2 class="ex-title">16개 시·도의 108개 AI 공약은 ‘투자 경쟁’에 쏠려 있지만,<br>‘AI 시대에 인간은 무엇을 해야 하나’라는 질문은 <em>드뭅니다</em>.</h2>
+  <ol class="ex-list">
+    <li><span class="exn">01</span><div>
+      <h3>가장 눈에 띈 공약</h3>
+      <p>요즘 세계의 화두는 “로봇이 일을 대신하면 인간은 무엇을 할 것인가”입니다. 울산은 현대차의 아틀라스 같은 로봇을 <a class="pl" href="#pol-6-1">노동자·시민 조합이 직접 소유하게 하자</a>고 제안했습니다. 구체적인 실행 가능성은 더 따져봐야겠지만, 시민이 일자리를 빼앗기는 쪽이 아니라 로봇의 주인이 되도록 하자는 구상입니다. 108건 가운데 이 질문을 가장 정면으로 다룬 공약입니다.</p>
+    </div></li>
+    <li><span class="exn">02</span><div>
+      <h3>나머지는 모두 투자 경쟁</h3>
+      <p>여러 지역이 ‘AI 수도’를 내걸었습니다. 충남은 <a class="pl" href="#pol-11-0">‘대한민국 AI 수도’</a>, 전북은 <a class="pl" href="#pol-12-0">‘피지컬 AI 수도’</a>, 인천은 <a class="pl" href="#pol-3-2">‘글로벌 물류 AI 수도’</a>를 외쳤고, 전남광주는 <a class="pl" href="#pol-4-1">‘AI·반도체·에너지 초광역 경제권’</a>을 제시했습니다. 부산은 5년간 10조 원을 들여 <a class="pl" href="#pol-1-0">AI 데이터센터 클러스터</a>를, 서울은 양재에 <a class="pl" href="#pol-0-2">27만㎡ AI 테크시티</a>를 약속했습니다. 108건 중 <em>61%(66건)</em>가 이런 인프라·산업 투자 공약입니다.</p>
+    </div></li>
+    <li><span class="exn">03</span><div>
+      <h3>비어 있는 자리</h3>
+      <p>정작 시민이 직접 체감할 수 있는 공약은 드뭅니다. <a class="pl" href="#pol-8-2">경기도의 디지털 성범죄 영상물 삭제 지원</a>이나 <a class="pl" href="#pol-0-1">서울의 레벨4 무인 로보택시 도심 운행</a> 정도가 손에 잡힐 뿐, 복지·안전·데이터 권익을 합쳐도 <em>13%(14건)</em>에 그칩니다. 사람의 몫을 묻는 분배 공약은 <a class="pl" href="#pol-6-1">울산(로봇조합)</a>·<a class="pl" href="#pol-4-4">전남광주(20조 원 ‘8:1:1’ 배분)</a>·<a class="pl" href="#pol-15-1">제주(1조 원 도민주권 혁신펀드)</a> 3건뿐입니다. 시민 개개인의 AI 활용력(AI 리터러시)을 키우겠다는 공약은 더 드물어, 전 연령을 아우른 곳은 <a class="pl" href="#pol-11-3">충남 ‘연령·직업별 맞춤형 AI 교육’</a>이 사실상 유일합니다.</p>
+    </div></li>
+    <li><span class="exn">04</span><div>
+      <h3>규모는 키웠지만, 관건은 실행</h3>
+      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 닮았고, 금액만 키웠습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). 그러나 단일 출처에만 기댄 선언적 공약이 <em>10%(11건)</em>이고, AI를 끝까지 책임질 전담 조직을 갖춘 곳은 <em>16곳 중 9곳</em>(서울·부산·인천·전남광주·대전·세종·경기·전북·제주)뿐입니다.</p>
+    </div></li>
+  </ol>
+</section>
+
+<!-- ===== LANDSCAPE: 비교 격자 + 건수 지도 ===== -->
+<section id="landscape">
+  <div class="ls-head"><span class="stamp">한눈에 보기</span><span class="kicker">16개 시·도 · 카테고리 분포</span></div>
+  <div id="matrix" class="ls-block"></div>
+  <div id="countmap" class="ls-block"></div>
+</section>
+
 <main id="deck"></main>
 <main id="catdeck" hidden></main>
 <div id="noresult" hidden>검색 결과가 없습니다.</div>
 
 <!-- ===== COLOPHON ===== -->
 <section id="colophon">
-  <div class="petals"><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span></div>
-  <div class="ribbons"><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span></div>
   <div class="cl-top"><span class="stamp">프로젝트 소개</span></div>
-  <h2>16곳의 AI 약속을, 확인할 수 있는 <em>기록</em>으로 남깁니다.</h2>
-  <p class="clead"><strong>AI 정책 카탈로그 2026</strong>은 2026년 6·3 지방선거에서 당선된 16개 시·도지사의 AI 공약 106건을 한곳에 모았습니다.<br>각 약속이 어디서 나온 말인지 출처와 신뢰도까지 함께 정리한 프로젝트입니다.</p>
+  <h2>16곳의 AI 정책을, 확인할 수 있는 <em>기록</em>으로 남깁니다.</h2>
+  <p class="clead"><strong>AI 정책 카탈로그 2026</strong>은 2026년 6·3 지방선거에서 당선된 16개 시·도지사의 AI 공약 108건을 한곳에 모았습니다.<br>각 공약이 어떤 배경에서 나오게 되었는지 출처와 신뢰도까지 함께 정리한 프로젝트입니다.</p>
+
   <div class="foot3">
-    <div><div class="micro">무엇을 담았나</div><p>AI 인프라·산업 전환·인재·시민 일상 등 8개 분야의 공약 106건. 16개 시·도가 내건 약속을 지역별로도, 분야별로도 찾아볼 수 있습니다.</p></div>
-    <div><div class="micro">어떻게 검증했나</div><p>후보·당선인의 발언과 언론 보도를 교차 확인하고, 직접인용·보도확인·단일출처 3단계로 신뢰도를 표시했습니다. 모든 항목에 원문 출처 링크를 답니다.</p></div>
+    <div><div class="micro">무엇을 담았나</div><p>AI 인프라·산업 전환·인재·시민 일상 등 8개 분야의 공약 108건. 16개 시·도가 내건 약속을 지역별로도, 분야별로도 찾아볼 수 있습니다.</p></div>
+    <div><div class="micro">어떻게 검증했나</div><p>후보·당선인의 발언과 언론 보도를 교차 확인하고, 직접인용·보도확인·단일출처 3단계로 신뢰도를 표시했습니다. 모든 항목에 원문 출처 링크를 표기했습니다.</p></div>
     <div><div class="micro">만든 사람</div><p>AI ROASTING이 기획하고 Claude Opus 4.8이 수집·팩트체크·디자인을 맡았습니다.</p></div>
   </div>
-  <p class="disc">공약은 발표·보도 시점을 기준으로 정리했으며 취임 이후 달라질 수 있습니다. ‘단일출처’로 표시된 항목은 교차검증이 되지 않은 내용이니, 출처 링크로 직접 확인하며 읽어주세요.</p>
+
+  <!-- 이렇게 읽으세요 -->
+  <div class="cl-howto">
+    <div class="micro">이렇게 읽으세요</div>
+    <ul>
+      <li><b>신뢰도 배지</b><span>직접인용(본인 발언) · 보도확인(복수 매체) · 단일출처(한 곳뿐, 주의) 순으로 근거가 약해집니다.</span></li>
+      <li><b>팩트체크 배지</b><span>링크 생존, 복수매체 교차, 반증 시도 생존 세 가지를 표시합니다. 켜진 항목이 많을수록 더 많은 검증을 거친 공약입니다.</span></li>
+      <li><b>출처 링크</b><span>모든 카드의 링크를 눌러 원문에서 직접 확인할 수 있습니다. 의심되면 링크부터 보세요.</span></li>
+    </ul>
+  </div>
+
+  <!-- 면책 고지 -->
+  <div class="cl-legal">
+    <div class="micro">면책 고지</div>
+    <dl>
+      <div class="li"><dt>정치적 중립</dt><dd>특정 정당·후보를 지지하거나 반대하지 않습니다. 타일·배지의 정당색은 소속 식별용입니다.</dd></div>
+      <div class="li"><dt>데이터 시점</dt><dd>공약은 후보·당선인의 발표 및 보도 시점 기준입니다. 취임(2026.07) 후 공식 시정계획에서 달라질 수 있습니다.</dd></div>
+      <div class="li"><dt>AI 생성·검증 한계</dt><dd>수집·팩트체크·작성에 AI를 사용했습니다. 검증을 거쳤으나 오류가 있을 수 있으며, ‘단일출처’ 항목은 교차검증되지 않았습니다.</dd></div>
+      <div class="li"><dt>출처·저작권</dt><dd>당선인 사진은 Wikimedia Commons의 실사를 레트로 듀오톤으로 가공한 것입니다. 인용한 내용의 출처는 각 카드의 링크에 밝혀 두었습니다.</dd></div>
+      <div class="li"><dt>비영리·비상업</dt><dd>정보 제공 목적의 비상업 프로젝트입니다.</dd></div>
+      <div class="li"><dt>정정 요청</dt><dd>오류나 누락을 발견하시면 <a href="https://www.linkedin.com/in/jayden-kang/" target="_blank" rel="noopener">제작자 링크</a>로 알려주세요. 확인 후 반영하겠습니다.</dd></div>
+    </dl>
+  </div>
   <div class="cl-social">
     <div class="bybrand"><img src="assets/logos/logo1-transparent.png" alt="AI ROASTING" /><span><em>AI</em> ROASTING</span></div>
     <a class="soc" href="https://www.linkedin.com/in/jayden-kang/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
@@ -720,6 +960,7 @@
 </section>
 
 <script src="data.js"></script>
+<script src="kr_map.js"></script>
 <script>
 /* ---- 인구순 정렬 + 표기 ---- */
 /* 행정 표준 순서: 특별시 → 광역시 → 특별자치시 → 도 → 특별자치도 (광주는 전남과 통합되어 호남 자리) */
@@ -807,7 +1048,6 @@ function spread(d,i){
   return `<section class="spread" id="r${i}" data-no="${pad2(i+1)}" data-name="${esc(disp(d.region))}">
     <div class="hero-band">
       <div class="hb-visual">
-        <div class="hb-petals petals"><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span></div>
         <div class="bldg rv">
           <span class="tape tl"></span>
           <div class="photo-wrap duo-ink bldgfill">
@@ -817,7 +1057,7 @@ function spread(d,i){
           <div class="face">
             <span class="tape br"></span>
             <div class="photo-wrap">
-              <img src="${esc(d.leader.photo_url||'')}" alt="${esc(d.leader.name)}" loading="lazy" referrerpolicy="no-referrer"
+              <img src="${esc(d.leader.photo_url||'')}" alt="${esc(d.leader.name)}" data-leader="${esc(d.leader.name)}" loading="lazy" referrerpolicy="no-referrer"
                 onerror="this.closest('.photo-wrap').classList.add('noimg');this.remove()">
             </div>
           </div>
@@ -913,7 +1153,16 @@ function setActive(i){
     const on=pills[i]; if(on) regnav.scrollTo({left:on.offsetLeft-regnav.clientWidth/2+on.clientWidth/2,behavior:'smooth'});
   }else setMobCount(null);
 }
+/* 서브메뉴(#top) 노출 제어: 표지 구간엔 숨기고, 요약 섹션이 상단에 닿아 sticky로 고정되면 등장 */
+function updateNavVisibility(){
+  const top=document.getElementById('top'); if(!top) return;
+  if(isDrawer()){ top.classList.remove('nav-prehide'); return; } /* 모바일은 드로어라 제외 */
+  const stuck=top.getBoundingClientRect().top<=0.5; /* sticky로 상단 고정됨 = 표지를 벗어남 */
+  top.classList.toggle('nav-prehide', !stuck);
+}
+window.addEventListener('resize',updateNavVisibility,{passive:true});
 function updateActive(){
+  updateNavVisibility();
   const secs=activeSections(),probe=barH()+30; let found=-1;
   const navSum=document.getElementById('jumpSum'),navIntro=document.getElementById('jumpIntro');
   if(navSum)navSum.classList.remove('on'); if(navIntro)navIntro.classList.remove('on');
@@ -969,9 +1218,116 @@ document.querySelectorAll('#modesw button').forEach(b=>b.onclick=()=>switchMode(
 searchInput.addEventListener('input',()=>{applySearch();updateActive();});
 buildPills();
 
+/* ---- 비교 격자 (16지역 × 8카테고리, 교차 점프) ---- */
+const CAT_SHORT={'AI인프라':'AI 인프라','AI산업전환':'AI 산업전환','AI신산업·R&D':'AI 신산업·R&D','행정혁신':'행정혁신','인재·교육':'인재·교육','시민일상·복지':'시민일상·복지','안전·데이터권익':'안전·데이터권익','분배·공공성':'분배·공공성'};
+/* 모드 전환을 동반한 점프: 모드가 바뀌면 레이아웃 정착 후 보정 스크롤(먼 거리라 instant). 같은 모드면 기존 smooth 사용 */
+function jumpTo(targetMode,sec){
+  if(!sec){ if(mode!==targetMode) switchMode(targetMode); return; }
+  if(mode!==targetMode){
+    switchMode(targetMode);
+    setTimeout(function(){const y=sec.getBoundingClientRect().top+window.scrollY-barH()+3;window.scrollTo({top:Math.max(0,y),behavior:'instant'});},60);
+  }else{ scrollToSection(sec); }
+}
+function renderMatrix(){
+  const host=document.getElementById('matrix'); if(!host) return;
+  const total=DATA.reduce((a,d)=>a+(d.policies||[]).length,0);
+  const colTot=CATS.map(c=>DATA.reduce((a,d)=>a+(d.policies||[]).filter(p=>p.category===c).length,0));
+  const left3=colTot.slice(0,3).reduce((a,b)=>a+b,0), right2=colTot.slice(6).reduce((a,b)=>a+b,0);
+  const lvl=n=>n<=0?0:n===1?1:n===2?2:3;
+  const head='<th class="mx-rh" scope="col">지역</th>'+CATS.map(c=>`<th class="mx-ch" scope="col" data-cat="${esc(c)}" role="button" tabindex="0" aria-label="${esc(c)} 카테고리 보기">${esc(CAT_SHORT[c]||c)}</th>`).join('')+'<th class="mx-ch mx-sum" scope="col">계</th>';
+  const rows=DATA.map((d,i)=>{
+    const cells=CATS.map(c=>{
+      const n=(d.policies||[]).filter(p=>p.category===c).length;
+      if(n<=0) return '<td class="mx-c v0" aria-disabled="true">·</td>';
+      const k=(d.policies||[]).findIndex(p=>p.category===c);
+      return `<td class="mx-c v${lvl(n)}"><a href="#pol-${i}-${k}" aria-label="${esc(disp(d.region))} ${esc(c)} ${n}건 정책으로 이동">${n}</a></td>`;
+    }).join('');
+    return `<tr><td class="mx-r" role="button" tabindex="0" data-ri="${i}" aria-label="${esc(disp(d.region))} 지역으로 이동"><i class="mx-dot ${cssCls(d.leader.party)}"></i>${esc(SHORT[d.region]||disp(d.region))}</td>${cells}<td class="mx-c mx-tot">${(d.policies||[]).length}</td></tr>`;
+  }).join('');
+  const foot=`<tr class="mxfoot"><td class="mx-r">합계</td>${colTot.map(n=>`<td class="mx-c mx-coltot">${n}</td>`).join('')}<td class="mx-c mx-tot">${total}</td></tr>`;
+  host.innerHTML=`<div class="mx-swipe" aria-hidden="true">↔ 좌우로 넘겨 더 보기</div>
+    <div class="mx-scroll"><table class="mx"><thead><tr>${head}</tr></thead><tbody>${rows}${foot}</tbody></table></div>
+    <div class="mx-legend"><span class="mx-party"><i class="mx-dot dem"></i>민주 <i class="mx-dot ppp"></i>국민의힘</span><span class="mx-scale"><span>적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음 (0→3건)</span></span></div>`;
+  (function(){const sc=host.querySelector('.mx-scroll'),hint=host.querySelector('.mx-swipe');if(!sc||!hint)return;const upd=()=>{if(sc.dataset.scrolled)return;hint.style.display=(sc.scrollWidth-sc.clientWidth>6)?'block':'none';};upd();window.addEventListener('resize',upd);sc.addEventListener('scroll',()=>{if(sc.scrollLeft>8){hint.style.display='none';sc.dataset.scrolled='1';}},{passive:true});})();
+  host.querySelectorAll('td.mx-r[data-ri]').forEach(el=>{
+    const i=+el.dataset.ri, go=()=>jumpTo('region',spreads[i]);
+    el.onclick=go; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  });
+  host.querySelectorAll('th.mx-ch[data-cat]').forEach(el=>{
+    const sec=catdeck.querySelector('.catsec[data-cat="'+el.dataset.cat+'"]');
+    if(!sec){el.removeAttribute('role');el.removeAttribute('tabindex');el.style.cursor='default';return;}
+    const go=()=>jumpTo('cat',sec);
+    el.onclick=go; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  });
+}
+
+/* ---- 건수 기반 간이 지도 (정당색 농도 = 공약 수) ---- */
+function renderCountMap(){
+  const host=document.getElementById('countmap'); if(!host||!window.KR_MAP) return;
+  const M=window.KR_MAP;
+  const byKey={}; DATA.forEach((d,i)=>byKey[d.region]={d,i,n:(d.policies||[]).length});
+  const maxN=Math.max(1,...DATA.map(d=>(d.policies||[]).length));
+  const paths=M.regions.map(r=>{
+    const rec=byKey[r.key];
+    if(!rec){ if(r.key) console.warn('[countmap] 미매칭 지역:',r.key); return `<path d="${r.path}" fill="#E5D6B0" stroke="#3A2516" stroke-width="0.6" opacity=".45"></path>`; }
+    const op=(0.24+0.7*(rec.n/maxN)).toFixed(2);
+    return `<path class="cm-p ${cssCls(rec.d.leader.party)}" d="${r.path}" data-ri="${rec.i}" role="button" tabindex="0" style="fill-opacity:${op}" aria-label="${esc(disp(rec.d.region))} ${esc(rec.d.leader.name)} ${esc(rec.d.leader.party)} AI 공약 ${rec.n}건, 지역으로 이동"></path>`;
+  }).join('');
+  const rank=DATA.map((d,i)=>({d,i,n:(d.policies||[]).length}));
+  host.innerHTML=`<div class="cm-wrap">
+    <div class="cm-svgbox"><svg viewBox="${M.viewBox}" class="cm-svg" role="img" aria-label="지역별 AI 공약 건수 지도">${paths}</svg><div class="cm-tip" hidden></div></div>
+    <div class="cm-side"><span class="stamp">지역별 공약 수</span>
+      <p class="cm-note">색이 진할수록 공약 <b>개수</b>가 많습니다. 정당색(민주 파랑·국민의힘 빨강) 기준. <em>건수는 공약 개수이며 규모·실현 가능성이 아닙니다.</em></p>
+      <ol class="cm-rank">${rank.map(x=>`<li><button class="cm-rankbtn ${cssCls(x.d.leader.party)}" data-ri="${x.i}"><span>${esc(SHORT[x.d.region]||disp(x.d.region))}</span><b>${x.n}</b></button></li>`).join('')}</ol>
+    </div></div>`;
+  const box=()=>host.querySelector('.cm-svgbox').getBoundingClientRect();
+  const tip=host.querySelector('.cm-tip');
+  const showTip=(i,cx,cy)=>{const r=DATA[i];tip.innerHTML=`<b>${esc(disp(r.region))}</b> ${esc(r.leader.name)}<br>${esc(r.leader.party)} · AI 공약 ${(r.policies||[]).length}건`;tip.hidden=false;const b=box();tip.style.left=(cx-b.left)+'px';tip.style.top=(cy-b.top)+'px';};
+  const hideTip=()=>{tip.hidden=true;};
+  host.querySelectorAll('.cm-p[data-ri]').forEach(p=>{
+    const i=+p.dataset.ri, go=()=>jumpTo('region',spreads[i]);
+    p.addEventListener('mousemove',e=>showTip(i,e.clientX,e.clientY));
+    p.addEventListener('mouseleave',hideTip);
+    p.addEventListener('click',go);
+    p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+    p.addEventListener('focus',()=>{const r=p.getBoundingClientRect();showTip(i,r.left+r.width/2,r.top);});
+    p.addEventListener('blur',hideTip);
+  });
+  host.querySelectorAll('.cm-rankbtn[data-ri]').forEach(b=>{
+    const i=+b.dataset.ri;
+    b.onclick=()=>jumpTo('region',spreads[i]);
+    const path=host.querySelector('.cm-p[data-ri="'+i+'"]');
+    b.addEventListener('mouseenter',()=>{if(path)path.classList.add('cm-hi');});
+    b.addEventListener('mouseleave',()=>{if(path)path.classList.remove('cm-hi');});
+  });
+}
+renderMatrix(); renderCountMap();
+/* 표지 통계 데이터 드리븐(수치 재발 방지) */
+(function(){var sp=document.getElementById('statPol');if(sp)sp.textContent=DATA.reduce((a,d)=>a+(d.policies||[]).length,0);}());
+
 /* ---- 표지 하단 입구: 검색 + 모드 진입 ---- */
 document.getElementById('goRegion').onclick=()=>switchMode('region',spreads[0]);
 document.getElementById('goCat').onclick=()=>switchMode('cat',catsecs[0]);
+/* 표지 분야 칩 → 해당 카테고리로 점프 */
+document.querySelectorAll('#cover .ccat').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    const cat=chip.getAttribute('data-cat');
+    const sec=catsecs.find(s=>s.getAttribute('data-cat')===cat);
+    switchMode('cat',sec||catsecs[0]);
+  });
+  const cat=chip.getAttribute('data-cat');
+  const n=DATA.reduce((a,d)=>a+(d.policies||[]).filter(p=>p.category===cat).length,0);
+  const b=document.createElement('b');b.className='ccat-n';b.textContent=n;chip.appendChild(b);
+});
+/* 마스트헤드 높이를 표지 높이 계산(100vh - 헤더)에 반영 → 표지 하단이 첫 화면에 들어오도록 */
+(function syncMastheadH(){
+  const mh=document.getElementById('masthead');
+  if(!mh) return;
+  const set=()=>document.documentElement.style.setProperty('--mhH',mh.offsetHeight+'px');
+  set();
+  window.addEventListener('resize',set,{passive:true});
+  if('ResizeObserver' in window){try{new ResizeObserver(set).observe(mh);}catch(e){}}
+})();
 const coverSearch=document.getElementById('coverSearch');
 if(coverSearch) coverSearch.addEventListener('input',()=>{
   searchInput.value=coverSearch.value;
@@ -1028,13 +1384,31 @@ document.addEventListener('click',e=>{
 });
 
 /* ---- 콜로폰으로 즉시 이동 (먼 거리라 smooth는 중간에 끊겨 instant 사용) ---- */
-function gotoColophon(){const el=document.getElementById('colophon');if(!el)return;const y=el.getBoundingClientRect().top+window.scrollY-barH()+3;window.scrollTo({top:Math.max(0,y),behavior:'instant'});}
-const projBtn=document.querySelector('#cover .projpill');
+function gotoColophon(){const el=document.getElementById('colophon');if(!el)return;const pad=parseFloat(getComputedStyle(el).paddingTop)||0;const y=el.getBoundingClientRect().top+window.scrollY-barH()+pad-40;window.scrollTo({top:Math.max(0,y),behavior:'instant'});}
+const projBtn=document.querySelector('#masthead .projpill');
 if(projBtn) projBtn.addEventListener('click',e=>{e.preventDefault();gotoColophon();});
+
+/* ---- 마스트헤드 로고텍스트: 글자별 .wv 스팬으로 분리(hover 웨이브용) ---- */
+(function(){
+  const txt=document.querySelector('#masthead .mh-txt');
+  if(!txt) return;
+  let i=0;
+  const walk=node=>{[...node.childNodes].forEach(ch=>{
+    if(ch.nodeType===3){
+      const frag=document.createDocumentFragment();
+      for(const c of ch.textContent){
+        if(c===' '){frag.appendChild(document.createTextNode(' '));}
+        else{const s=document.createElement('span');s.className='wv';s.style.setProperty('--i',i++);s.textContent=c;frag.appendChild(s);}
+      }
+      ch.replaceWith(frag);
+    } else if(ch.nodeType===1){ walk(ch); }
+  });};
+  walk(txt);
+})();
 
 /* ---- 서브메뉴 '요약'/'소개' 점프 (먼 거리라 즉시 이동) ---- */
 const js=document.getElementById('jumpSum');
-if(js) js.addEventListener('click',()=>{const el=document.getElementById('exsum');if(el)window.scrollTo({top:el.offsetTop,behavior:'instant'});});
+if(js) js.addEventListener('click',()=>{const el=document.getElementById('exsum');if(!el)return;const tp=document.getElementById('top');const off=(tp&&getComputedStyle(tp).position==='sticky')?tp.getBoundingClientRect().height:0;const pad=parseFloat(getComputedStyle(el).paddingTop)||0;window.scrollTo({top:Math.max(0,el.offsetTop-off+pad-40),behavior:'instant'});});
 const ji=document.getElementById('jumpIntro');
 if(ji) ji.addEventListener('click',gotoColophon);
 
