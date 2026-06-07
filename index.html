@@ -712,13 +712,13 @@
   .mx-party{display:flex;align-items:center;gap:6px}
   .mx-scale{margin-left:auto;display:flex;align-items:center;gap:6px}
 
-  /* 블록 우측 하단 '요약' 버튼 (Executive Summary로 이동) */
-  .ls-sumwrap{display:flex;justify-content:flex-end;margin-top:16px}
-  .ls-sumbtn{font-family:inherit;font-size:12.5px;font-weight:800;color:var(--ink);background:var(--paper);
-    border:1.5px solid var(--ink);border-radius:999px;padding:6px 16px;cursor:pointer;white-space:nowrap;
-    display:inline-flex;align-items:center;gap:5px;transition:background .15s,color .15s}
-  .ls-sumbtn::after{content:"↑";font-weight:800}
-  .ls-sumbtn:hover{background:var(--ink);color:var(--paper)}
+  /* 우측 하단 고정 '요약' 플로팅 버튼 (Executive Summary로 이동) */
+  .floatsum{position:fixed;right:clamp(16px,2.5vw,40px);bottom:clamp(16px,2.5vw,40px);z-index:75;
+    font-family:inherit;font-size:13px;font-weight:800;color:var(--ink);background:var(--paper);
+    border:1.5px solid var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer;white-space:nowrap;
+    box-shadow:0 8px 22px -8px rgba(58,37,22,.55);transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+  .floatsum:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(58,37,22,.7)}
+  @media(max-width:768px){ .floatsum{display:none} }
 
   /* 건수 지도 */
   #countmap{margin-top:clamp(34px,5vw,64px)}
@@ -818,6 +818,7 @@
   </button>
 </nav>
 <div id="tipbubble" role="status" aria-live="polite"></div>
+<button id="floatSum" class="floatsum" type="button" aria-label="요약으로 이동" onclick="document.getElementById('jumpSum').click()">요약</button>
 
 <!-- ===== COVER ===== -->
 <section id="cover">
@@ -890,7 +891,7 @@
     <span class="stamp">EXECUTIVE SUMMARY</span>
     <span class="kicker">16개 시·도 · 108건 AI 공약 대상</span>
   </div>
-  <h2 class="ex-title">16개 시·도의 108개 AI 공약은 ‘투자 경쟁’에 쏠려 있지만,<br>‘AI 시대에 인간은 무엇을 해야 하나’라는 질문은 <em>드뭅니다</em>.</h2>
+  <h2 class="ex-title">16개 시·도가 내건 108개 AI 공약은 ‘투자 경쟁’에 쏠려 있을 뿐,<br>정작 ‘AI 시대에 인간은 무엇을 해야 하는가’를 묻는 공약은 <em>드뭅니다</em>.</h2>
   <ol class="ex-list">
     <li><span class="exn">01</span><div>
       <h3>가장 눈에 띈 공약</h3>
@@ -1255,8 +1256,7 @@ function renderMatrix(){
   const foot=`<tr class="mxfoot"><td class="mx-r">합계</td>${colTot.map(n=>`<td class="mx-c mx-coltot">${n}</td>`).join('')}<td class="mx-c mx-tot">${total}</td></tr>`;
   host.innerHTML=`<div class="mx-swipe" aria-hidden="true">↔ 좌우로 넘겨 더 보기</div>
     <div class="mx-scroll"><table class="mx"><thead><tr>${head}</tr></thead><tbody>${rows}${foot}</tbody></table></div>
-    <div class="mx-legend"><span class="mx-party"><i class="mx-dot dem"></i>민주 <i class="mx-dot ppp"></i>국민의힘</span><span class="mx-scale"><span>적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음 (0→3건)</span></span></div>
-    <div class="ls-sumwrap"><button type="button" class="ls-sumbtn" onclick="document.getElementById('jumpSum').click()">요약</button></div>`;
+    <div class="mx-legend"><span class="mx-party"><i class="mx-dot dem"></i>민주 <i class="mx-dot ppp"></i>국민의힘</span><span class="mx-scale"><span>적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음 (0→3건)</span></span></div>`;
   (function(){const sc=host.querySelector('.mx-scroll'),hint=host.querySelector('.mx-swipe');if(!sc||!hint)return;const upd=()=>{if(sc.dataset.scrolled)return;hint.style.display=(sc.scrollWidth-sc.clientWidth>6)?'block':'none';};upd();window.addEventListener('resize',upd);sc.addEventListener('scroll',()=>{if(sc.scrollLeft>8){hint.style.display='none';sc.dataset.scrolled='1';}},{passive:true});})();
   host.querySelectorAll('td.mx-r[data-ri]').forEach(el=>{
     const i=+el.dataset.ri, go=()=>jumpTo('region',spreads[i]);
@@ -1288,8 +1288,7 @@ function renderCountMap(){
     <div class="cm-side"><span class="stamp">지역별 공약 수</span>
       <p class="cm-note">색이 진할수록 공약 <b>개수</b>가 많습니다. 정당색(민주 파랑·국민의힘 빨강) 기준. <em>건수는 공약 개수이며 규모·실현 가능성이 아닙니다.</em></p>
       <ol class="cm-rank">${rank.map(x=>`<li><button class="cm-rankbtn ${cssCls(x.d.leader.party)}" data-ri="${x.i}"><span>${esc(SHORT[x.d.region]||disp(x.d.region))}</span><b>${x.n}</b></button></li>`).join('')}</ol>
-    </div></div>
-    <div class="ls-sumwrap"><button type="button" class="ls-sumbtn" onclick="document.getElementById('jumpSum').click()">요약</button></div>`;
+    </div></div>`;
   const box=()=>host.querySelector('.cm-svgbox').getBoundingClientRect();
   const tip=host.querySelector('.cm-tip');
   const showTip=(i,cx,cy)=>{const r=DATA[i];tip.innerHTML=`<b>${esc(disp(r.region))}</b> ${esc(r.leader.name)}<br>${esc(r.leader.party)} · AI 공약 ${(r.policies||[]).length}건`;tip.hidden=false;const b=box();tip.style.left=(cx-b.left)+'px';tip.style.top=(cy-b.top)+'px';};
