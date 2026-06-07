@@ -2,222 +2,144 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-    <link rel="canonical" href="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail-source.html">
-    <meta property="og:title" content="AI ROASTING · 비즈니스 리더를 위한 Codex 완전 정복">
-    <meta property="og:description" content="비즈니스 리더를 위한 Codex 완전 정복. 작업 구상부터 코드 변경과 자동화까지 5단계 실전 가이드">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail.png">
-    <meta property="og:url" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail-source.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI ROASTING · 비즈니스 리더를 위한 Codex 완전 정복">
-    <meta name="twitter:description" content="비즈니스 리더를 위한 Codex 완전 정복. 작업 구상부터 코드 변경과 자동화까지 5단계 실전 가이드">
-    <meta name="twitter:image" content="https://airosting.github.io/codex_guide/assets/thumbnails/thumbnail.png">
-<title>Thumbnail</title>
+  <link rel="canonical" href="https://airoasting.github.io/aipolicy2026/assets/thumbnails/thumbnail-source.html">
+  <meta property="og:title" content="AI 정책 카탈로그 2026 · 16개 시장·도지사의 인공지능 공약">
+  <meta property="og:description" content="6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약 108건을 출처와 함께 정리했습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://airoasting.github.io/aipolicy2026/assets/thumbnails/thumbnail.png">
+  <meta property="og:url" content="https://airoasting.github.io/aipolicy2026/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 정책 카탈로그 2026 · 16개 시장·도지사의 인공지능 공약">
+  <meta name="twitter:description" content="6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약 108건을 출처와 함께 정리했습니다.">
+  <meta name="twitter:image" content="https://airoasting.github.io/aipolicy2026/assets/thumbnails/thumbnail.png">
+<title>Thumbnail · AI 정책 카탈로그 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  @font-face {
-    font-family: 'Pretendard';
-    src: url('../fonts/PretendardVariable.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
+  @font-face{
+    font-family:'Pretendard';
+    src:url('../fonts/PretendardVariable.ttf') format('truetype');
+    font-weight:100 900; font-style:normal;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1200px; height: 630px; overflow: hidden; }
-  body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-    /* index 헤더 계열 인디고 네이비 (영상 밝기를 반영해 한 단계 밝게) */
-    background:
-      radial-gradient(115% 135% at 80% -15%, rgba(110,122,224,0.42) 0%, rgba(110,122,224,0) 55%),
-      linear-gradient(135deg, #1C2250 0%, #283071 55%, #343E8C 100%);
-    display: flex;
-    align-items: center;
-    position: relative;
-    word-break: keep-all;
+  :root{
+    --paper:#F1E6CB; --paper-dk:#E5D6B0; --ink:#3A2516; --sub:#7a6243;
+    --red:#E5392A; --pink:#E54489; --orange:#F09131; --orange-dk:#D2670C;
+    --green:#3D9F47; --blue:#3F8BC4; --yellow:#F0BC2A;
   }
-  /* 미세 도트 그리드 텍스처 */
-  body::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.055) 1.1px, transparent 1.2px);
-    background-size: 26px 26px;
-    -webkit-mask-image: linear-gradient(115deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 60%, transparent 80%);
-    mask-image: linear-gradient(115deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 60%, transparent 80%);
-    pointer-events: none;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;
+    background:var(--paper); color:var(--ink);
+    position:relative; word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
   }
-  /* 상단 라벤더 빛 띠 */
-  body::after {
-    content: '';
-    position: absolute; left: 0; right: 0; top: 0; height: 5px;
-    background: linear-gradient(90deg, #7E84EC 0%, #B8C5FF 38%, #5762D6 100%);
-    pointer-events: none;
-  }
+  .disp{font-family:'Big Shoulders Display','Pretendard',sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.86}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+  em{font-style:normal;color:var(--red)}
 
-  .stage {
-    position: relative;
-    z-index: 2;
-    padding: 0 84px;
-    width: 100%;
-    max-width: 760px;
-  }
+  /* 종이 그레인 + 비네트 */
+  #grain{position:absolute;inset:0;z-index:40;pointer-events:none;
+    background-image:radial-gradient(circle at 1px 1px, rgba(58,37,22,0.55) 1px, transparent 1.6px);
+    background-size:4px 4px;opacity:.16;mix-blend-mode:multiply}
+  #vign{position:absolute;inset:0;z-index:39;pointer-events:none;
+    background:radial-gradient(120% 120% at 50% 40%, transparent 60%, rgba(58,37,22,.12) 100%)}
 
-  /* 브랜드 락업 */
-  .brand {
-    display: inline-flex; align-items: center; gap: 11px;
-    margin-bottom: 30px;
-  }
-  .brand-logo {
-    width: 32px; height: 32px; border-radius: 50%;
-    display: block;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.12);
-  }
-  .brand-name {
-    color: rgba(255,255,255,0.92);
-    font-size: 17px; font-weight: 800;
-    letter-spacing: 0.26em;
-  }
+  /* 외곽 인쇄 프레임 */
+  .frame{position:absolute;inset:26px;border:2px solid var(--ink);z-index:5;pointer-events:none}
+  .frame::before{content:"";position:absolute;inset:6px;border:1px solid rgba(58,37,22,.42)}
 
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 9px;
-    color: #C9D0FF;
-    font-size: 19px; font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-top: 20px;
-  }
-  .eyebrow .prompt {
-    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
-    color: #8E97FF; font-weight: 800;
-  }
+  /* 상단 헤더 라인 */
+  .top{position:absolute;left:60px;right:60px;top:54px;z-index:10;
+    display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:13px;border-bottom:2px solid var(--ink)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand img{width:42px;height:42px;border-radius:50%;border:1.6px solid var(--ink);display:block}
+  .brand .bt{font-family:'Big Shoulders Display','Pretendard',sans-serif;font-weight:900;
+    font-size:22px;letter-spacing:.01em;line-height:1;color:var(--ink)}
+  .brand .bt s{color:var(--red);text-decoration:none;margin:0 .3em;font-weight:900}
+  .top .ed{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);font-weight:700;text-align:right;line-height:1.55}
 
-  .title {
-    color: #ffffff;
-    font-size: 62px;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.14;
-    text-shadow: 0 2px 24px rgba(10,12,40,0.45);
-  }
-  .title .accent {
-    background: linear-gradient(120deg, #AEB6FF 0%, #8E97FF 50%, #C7CEFF 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  /* 본문 스테이지 */
+  .stage{position:absolute;left:60px;top:134px;z-index:10;max-width:640px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.06em;
+    color:var(--ink);font-weight:800;margin-bottom:18px}
+  .kicker .tag{background:var(--orange-dk);color:var(--paper);font-family:'Big Shoulders Display',sans-serif;
+    font-weight:900;font-size:14px;letter-spacing:.05em;padding:4px 11px;transform:rotate(-2deg);border:1.4px solid var(--ink)}
 
-  .subtitle {
-    color: rgba(255,255,255,0.80);
-    font-size: 23px; font-weight: 500;
-    letter-spacing: -0.01em;
-    margin-top: 22px;
-    line-height: 1.4;
-  }
+  .hero{font-size:104px;color:var(--ink);margin-bottom:4px}
+  h1{font-weight:900;font-size:46px;line-height:1.05;letter-spacing:-.02em;color:var(--ink);max-width:620px}
+  h1 .hl{background:linear-gradient(transparent 62%, rgba(229,68,137,.42) 62%)}
 
-  /* 5단계 동선 플로우 */
-  .chips {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
-    margin-top: 34px;
-  }
-  .chip {
-    display: inline-flex; align-items: center;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 15.5px; font-weight: 700;
-    color: #E6E9FF;
-    background: rgba(123,134,247,0.16);
-    border: 1px solid rgba(174,182,255,0.30);
-    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08);
-  }
-  .arrow {
-    color: rgba(174,182,255,0.55);
-    font-size: 15px; font-weight: 800;
-  }
+  .lead{font-size:18px;line-height:1.5;color:var(--ink);font-weight:500;margin-top:16px;max-width:560px}
+  .lead em{font-weight:800}
 
-  /* 우측 코드/에이전트 모티프 */
-  .terminal {
-    position: absolute;
-    right: 70px; top: 50%;
-    transform: translateY(-50%) rotate(3deg);
-    width: 372px;
-    border-radius: 20px;
-    background: linear-gradient(160deg, rgba(13,16,40,0.92) 0%, rgba(22,27,64,0.92) 100%);
-    border: 1px solid rgba(174,182,255,0.22);
-    box-shadow: 0 40px 90px rgba(6,8,28,0.55), inset 0 1px 0 rgba(255,255,255,0.07);
-    overflow: hidden;
-    z-index: 1;
-  }
-  .terminal-bar {
-    display: flex; align-items: center; gap: 8px;
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .dot { width: 11px; height: 11px; border-radius: 50%; }
-  .dot.r { background: #FF6B5E; }
-  .dot.y { background: #FFC24B; }
-  .dot.g { background: #5BD08A; }
-  .terminal-tab {
-    margin-left: 8px; color: rgba(255,255,255,0.45);
-    font-size: 12.5px; font-weight: 600;
-    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
-  }
-  .terminal-body {
-    padding: 20px 22px 24px;
-    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
-    font-size: 14.5px; line-height: 1.85;
-  }
-  .line { white-space: nowrap; }
-  .c-prompt { color: #8E97FF; }
-  .c-cmd { color: #EDEFFF; }
-  .c-comment { color: rgba(255,255,255,0.34); }
-  .c-ok { color: #7BE0A6; }
-  .c-key { color: #C7CEFF; }
-  .cursor {
-    display: inline-block; width: 9px; height: 17px;
-    background: #AEB6FF; vertical-align: -3px; margin-left: 2px;
-    border-radius: 1px;
-  }
+  /* 통계 */
+  .stats{display:flex;gap:0;margin-top:24px;border-top:2px solid var(--ink);width:560px}
+  .stat{flex:1;padding:14px 4px 0;border-right:1.4px solid rgba(58,37,22,.3)}
+  .stat:last-child{border-right:none}
+  .stat b{display:block;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:46px;line-height:.9;color:var(--ink)}
+  .stat:nth-child(1) b{color:var(--red)} .stat:nth-child(2) b{color:var(--blue)} .stat:nth-child(3) b{color:var(--green)}
+  .stat span{display:block;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--sub);margin-top:6px}
 
-  .footer-tag {
-    position: absolute;
-    left: 84px; bottom: 40px;
-    color: rgba(255,255,255,0.42);
-    font-size: 14px; font-weight: 600;
-    letter-spacing: 0.04em;
-    z-index: 2;
-  }
+  /* 우측 데코: 리본 + 인장 (헤더 아래 우측 거터) */
+  .ribbons{position:absolute;right:0;top:188px;width:440px;height:360px;z-index:6;overflow:hidden}
+  .ribbon{position:absolute;width:620px;height:30px;transform:rotate(-30deg);transform-origin:left center;opacity:.92;
+    box-shadow:0 1px 0 rgba(58,37,22,.2)}
+  .ribbon:nth-child(1){background:var(--green);top:0px;left:-30px}
+  .ribbon:nth-child(2){background:var(--red);top:48px;left:-30px}
+  .ribbon:nth-child(3){background:var(--yellow);top:96px;left:-30px}
+  .ribbon:nth-child(4){background:var(--blue);top:144px;left:-30px}
+  .ribbon:nth-child(5){background:var(--orange);top:192px;left:-30px}
+
+  .seal{position:absolute;right:96px;top:150px;width:146px;height:146px;background:var(--ink);color:var(--paper);z-index:9;
+    clip-path:polygon(50% 0,61% 21%,85% 15%,79% 39%,100% 50%,79% 61%,85% 85%,61% 79%,50% 100%,39% 79%,15% 85%,21% 61%,0 50%,21% 39%,15% 15%,39% 21%);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;line-height:1;transform:rotate(-8deg)}
+  .seal b{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:46px}
+  .seal i{font-style:normal;font-size:11px;letter-spacing:.06em;margin-bottom:2px;font-weight:700;opacity:.85}
+  .seal span{font-size:10px;letter-spacing:.14em;margin-top:3px;font-weight:700}
+
+  /* 푸터 */
+  .foot{position:absolute;left:60px;right:60px;bottom:50px;z-index:10;
+    display:flex;align-items:center;justify-content:flex-end;
+    font-size:12.5px;letter-spacing:.05em;color:var(--sub);font-weight:700}
+  .foot .url{color:var(--ink)}
 </style>
 </head>
 <body>
-  <div class="stage">
+  <div id="vign"></div>
+
+  <div class="frame"></div>
+
+  <div class="top">
     <div class="brand">
-      <img class="brand-logo" src="../logos/logo1-white.png" alt="">
-      <span class="brand-name">AI ROASTING</span>
+      <img src="../logos/logo1-transparent.png" alt="">
+      <span class="bt">AI ROASTING<s>/</s>AI 정책 카탈로그 2026</span>
     </div>
-    <div class="title">비즈니스 리더를 위한<br><span class="accent">Codex</span> 완전 정복</div>
-    <div class="eyebrow">AI와 함께 일하는 5단계 실전 가이드</div>
-    <div class="subtitle">복잡한 설정 없이, 자연어로 명령하면서 에이전트를 설계합니다</div>
-    <div class="chips">
-      <span class="chip">진단</span>
-      <span class="arrow">→</span>
-      <span class="chip">작업 환경</span>
-      <span class="arrow">→</span>
-      <span class="chip">첫 작업</span>
-      <span class="arrow">→</span>
-      <span class="chip">협업</span>
-      <span class="arrow">→</span>
-      <span class="chip">자동화</span>
+    <div class="ed">제9회 전국동시지방선거<br>2026 · 인공지능 정책 모음집</div>
+  </div>
+
+  <div class="ribbons">
+    <span class="ribbon"></span><span class="ribbon"></span><span class="ribbon"></span>
+    <span class="ribbon"></span><span class="ribbon"></span>
+  </div>
+  <div class="stage">
+    <div class="kicker"><span class="tag">CATALOG 2026</span> 당선인 공약 아카이브</div>
+    <div class="hero disp">AI <em>2026</em></div>
+    <h1>16개 지역 시장·도지사의<br><span class="hl">인공지능 공약</span></h1>
+    <p class="lead"><em>6·3 지방선거</em>에서 당선된 광역단체장 16인이 내건 AI 공약을 출처와 함께 정리했습니다.</p>
+    <div class="stats">
+      <div class="stat"><b>16</b><span>시 · 도</span></div>
+      <div class="stat"><b>8</b><span>정책 분야</span></div>
+      <div class="stat"><b>108</b><span>AI 공약</span></div>
     </div>
   </div>
 
-  <div class="terminal">
-    <div class="terminal-bar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="terminal-tab">codex</span>
-    </div>
-    <div class="terminal-body">
-      <div class="line"><span class="c-comment"># 말로 시키면 끝납니다</span></div>
-      <div class="line"><span class="c-prompt">$</span> <span class="c-key">"매출 데이터 정리해줘"</span></div>
-      <div class="line"><span class="c-ok">✓ 완료</span> <span class="c-cmd">표·요약까지</span></div>
-      <div class="line"><span class="c-prompt">$</span> <span class="c-key">"보고서 초안 써줘"</span><span class="cursor"></span></div>
-    </div>
+  <div class="foot">
+    <span>Researched &amp; Designed by Claude Opus 4.8</span>
   </div>
 
+  <div id="grain"></div>
 </body>
 </html>

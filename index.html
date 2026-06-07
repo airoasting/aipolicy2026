@@ -4,6 +4,23 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>2026 · 16개 시장·도지사 AI 카탈로그</title>
+<meta name="description" content="6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약 108건을 8개 정책 분야로 나눠 출처와 함께 정리한 카탈로그." />
+<link rel="canonical" href="https://airoasting.github.io/aipolicy2026/" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AI 정책 카탈로그 2026" />
+<meta property="og:title" content="AI 정책 카탈로그 2026 · 16개 시장·도지사의 인공지능 공약" />
+<meta property="og:description" content="6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약 108건을 출처와 함께 정리했습니다." />
+<meta property="og:url" content="https://airoasting.github.io/aipolicy2026/" />
+<meta property="og:image" content="https://airoasting.github.io/aipolicy2026/assets/thumbnails/thumbnail.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI 정책 카탈로그 2026 · 16개 시장·도지사의 인공지능 공약" />
+<meta name="twitter:description" content="6·3 지방선거에서 당선된 광역단체장 16인이 내건 AI 공약 108건을 출처와 함께 정리했습니다." />
+<meta name="twitter:image" content="https://airoasting.github.io/aipolicy2026/assets/thumbnails/thumbnail.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
@@ -712,13 +729,6 @@
   .mx-party{display:flex;align-items:center;gap:6px}
   .mx-scale{margin-left:auto;display:flex;align-items:center;gap:6px}
 
-  /* 우측 하단 고정 '요약' 플로팅 버튼 (Executive Summary로 이동) */
-  .floatsum{position:fixed;right:clamp(16px,2.5vw,40px);bottom:clamp(16px,2.5vw,40px);z-index:75;
-    font-family:inherit;font-size:13px;font-weight:800;color:var(--ink);background:var(--paper);
-    border:1.5px solid var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer;white-space:nowrap;
-    box-shadow:0 8px 22px -8px rgba(58,37,22,.55);transition:transform .15s,box-shadow .15s,background .15s,color .15s}
-  .floatsum:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(58,37,22,.7)}
-  @media(max-width:768px){ .floatsum{display:none} }
 
   /* 건수 지도 */
   #countmap{margin-top:clamp(34px,5vw,64px)}
@@ -818,8 +828,6 @@
   </button>
 </nav>
 <div id="tipbubble" role="status" aria-live="polite"></div>
-<button id="floatSum" class="floatsum" type="button" aria-label="요약으로 이동" onclick="document.getElementById('jumpSum').click()">요약</button>
-
 <!-- ===== COVER ===== -->
 <section id="cover">
   <div class="hero disp">AI <em>2026</em></div>
@@ -907,7 +915,7 @@
     </div></li>
     <li><span class="exn">04</span><div>
       <h3>규모는 키웠지만, 관건은 실행</h3>
-      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 닮았고, 금액만 키웠습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). 그러나 단일 출처에만 기댄 선언적 공약이 <em>10%(11건)</em>이고, AI를 끝까지 책임질 전담 조직을 공약으로 내세운 곳은 <em>16곳 중 9곳</em>(서울·부산·인천·전남광주·대전·세종·경기·전북·제주)뿐입니다.</p>
+      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 비슷하고, 규모는 커졌습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). 그러나 단일 출처에만 기댄 선언적 공약이 <em>10%(11건)</em>이고, AI를 끝까지 책임질 전담 조직을 공약으로 내세운 곳은 <em>16곳 중 9곳</em>(서울·부산·인천·전남광주·대전·세종·경기·전북·제주)뿐입니다.</p>
     </div></li>
   </ol>
 </section>
@@ -1182,6 +1190,12 @@ function updateActive(){
   }
   const exs=document.getElementById('exsum');
   if(exs){const er=exs.getBoundingClientRect();if(er.top<=probe&&er.bottom>probe){
+    pageno.style.display='';pageno.textContent='요약';setMobCount(null);
+    pills.forEach(p=>p.classList.remove('on'));if(navSum)navSum.classList.add('on');curActive=-4;return;
+  }}
+  /* 한눈에 보기(격자·건수 지도) 구간도 요약 연장으로 묶어 라벨 유지 */
+  const land=document.getElementById('landscape');
+  if(land){const lr=land.getBoundingClientRect();if(lr.top<=probe&&lr.bottom>probe){
     pageno.style.display='';pageno.textContent='요약';setMobCount(null);
     pills.forEach(p=>p.classList.remove('on'));if(navSum)navSum.classList.add('on');curActive=-4;return;
   }}
