@@ -329,7 +329,7 @@
   .pl-head .t{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(26px,3.4vw,46px);line-height:.9}
   .staffline{font-size:13px;color:#5a4730;margin-bottom:26px;max-width:80ch;line-height:1.6}
   .staffline b{color:var(--ink)}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch}
   .pol{border:2px solid var(--ink);background:var(--paper);position:relative;padding:0 0 18px;
     box-shadow:6px 8px 0 rgba(58,37,22,.10);display:flex;flex-direction:column;scroll-margin-top:84px;
     transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s cubic-bezier(.2,.8,.2,1)}
@@ -341,7 +341,7 @@
   .pol.c-orange .topstrip{background:var(--orange)} .pol.c-blue .topstrip{background:var(--blue)}
   .pol.c-green .topstrip{background:var(--green)} .pol.c-yellow .topstrip{background:var(--yellow)}
   .pol .pin{padding:16px 18px 0;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-  .pol h3{font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:20px;line-height:1.05;letter-spacing:-.01em}
+  .pol h3{font-family:"Pretendard Variable","Pretendard",sans-serif;font-weight:800;font-size:19px;line-height:1.25;letter-spacing:-.01em}
   .pol .cat{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
     border:1.5px solid var(--ink);padding:3px 8px;white-space:nowrap;background:var(--paper-dk)}
   .pol .dlines{list-style:none;padding:0 18px;margin-top:12px}
@@ -712,6 +712,14 @@
   .mx-party{display:flex;align-items:center;gap:6px}
   .mx-scale{margin-left:auto;display:flex;align-items:center;gap:6px}
 
+  /* 블록 우측 하단 '요약' 버튼 (Executive Summary로 이동) */
+  .ls-sumwrap{display:flex;justify-content:flex-end;margin-top:16px}
+  .ls-sumbtn{font-family:inherit;font-size:12.5px;font-weight:800;color:var(--ink);background:var(--paper);
+    border:1.5px solid var(--ink);border-radius:999px;padding:6px 16px;cursor:pointer;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:5px;transition:background .15s,color .15s}
+  .ls-sumbtn::after{content:"↑";font-weight:800}
+  .ls-sumbtn:hover{background:var(--ink);color:var(--paper)}
+
   /* 건수 지도 */
   #countmap{margin-top:clamp(34px,5vw,64px)}
   .cm-wrap{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap}
@@ -898,7 +906,7 @@
     </div></li>
     <li><span class="exn">04</span><div>
       <h3>규모는 키웠지만, 관건은 실행</h3>
-      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 닮았고, 금액만 키웠습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). 그러나 단일 출처에만 기댄 선언적 공약이 <em>10%(11건)</em>이고, AI를 끝까지 책임질 전담 조직을 갖춘 곳은 <em>16곳 중 9곳</em>(서울·부산·인천·전남광주·대전·세종·경기·전북·제주)뿐입니다.</p>
+      <p>공약의 형태도 ‘AI 펀드+클러스터+데이터센터’로 서로 닮았고, 금액만 키웠습니다(<a class="pl" href="#pol-0-2">서울 5,000억</a>·<a class="pl" href="#pol-1-0">부산 10조</a>·<a class="pl" href="#pol-2-0">대구 2조</a>). 그러나 단일 출처에만 기댄 선언적 공약이 <em>10%(11건)</em>이고, AI를 끝까지 책임질 전담 조직을 공약으로 내세운 곳은 <em>16곳 중 9곳</em>(서울·부산·인천·전남광주·대전·세종·경기·전북·제주)뿐입니다.</p>
     </div></li>
   </ol>
 </section>
@@ -1004,7 +1012,7 @@ const DATA=[...(window.AI_DATA||[])].sort((a,b)=>POP.indexOf(a.region)-POP.index
 function detailHTML(s,cls){
   let t=(s||'').replace(/\s*([①②③④⑤⑥⑦⑧⑨])/g,'\n$1').replace(/\.\s+/g,'.\n');
   const lines=t.split(/\n+/).map(x=>x.trim()).filter(Boolean);
-  if(lines.length<=1) return `<p>${esc(s)}</p>`;
+  if(!lines.length) return '';
   return `<ul class="dlines" style="color:var(--${cls})">${lines.map(l=>`<li><span style="color:#43331f">${esc(l)}</span></li>`).join('')}</ul>`;
 }
 /* 카드 펼침/접힘 상태를 클래스 + aria-expanded로 함께 갱신 */
@@ -1247,7 +1255,8 @@ function renderMatrix(){
   const foot=`<tr class="mxfoot"><td class="mx-r">합계</td>${colTot.map(n=>`<td class="mx-c mx-coltot">${n}</td>`).join('')}<td class="mx-c mx-tot">${total}</td></tr>`;
   host.innerHTML=`<div class="mx-swipe" aria-hidden="true">↔ 좌우로 넘겨 더 보기</div>
     <div class="mx-scroll"><table class="mx"><thead><tr>${head}</tr></thead><tbody>${rows}${foot}</tbody></table></div>
-    <div class="mx-legend"><span class="mx-party"><i class="mx-dot dem"></i>민주 <i class="mx-dot ppp"></i>국민의힘</span><span class="mx-scale"><span>적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음 (0→3건)</span></span></div>`;
+    <div class="mx-legend"><span class="mx-party"><i class="mx-dot dem"></i>민주 <i class="mx-dot ppp"></i>국민의힘</span><span class="mx-scale"><span>적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음 (0→3건)</span></span></div>
+    <div class="ls-sumwrap"><button type="button" class="ls-sumbtn" onclick="document.getElementById('jumpSum').click()">요약</button></div>`;
   (function(){const sc=host.querySelector('.mx-scroll'),hint=host.querySelector('.mx-swipe');if(!sc||!hint)return;const upd=()=>{if(sc.dataset.scrolled)return;hint.style.display=(sc.scrollWidth-sc.clientWidth>6)?'block':'none';};upd();window.addEventListener('resize',upd);sc.addEventListener('scroll',()=>{if(sc.scrollLeft>8){hint.style.display='none';sc.dataset.scrolled='1';}},{passive:true});})();
   host.querySelectorAll('td.mx-r[data-ri]').forEach(el=>{
     const i=+el.dataset.ri, go=()=>jumpTo('region',spreads[i]);
@@ -1279,7 +1288,8 @@ function renderCountMap(){
     <div class="cm-side"><span class="stamp">지역별 공약 수</span>
       <p class="cm-note">색이 진할수록 공약 <b>개수</b>가 많습니다. 정당색(민주 파랑·국민의힘 빨강) 기준. <em>건수는 공약 개수이며 규모·실현 가능성이 아닙니다.</em></p>
       <ol class="cm-rank">${rank.map(x=>`<li><button class="cm-rankbtn ${cssCls(x.d.leader.party)}" data-ri="${x.i}"><span>${esc(SHORT[x.d.region]||disp(x.d.region))}</span><b>${x.n}</b></button></li>`).join('')}</ol>
-    </div></div>`;
+    </div></div>
+    <div class="ls-sumwrap"><button type="button" class="ls-sumbtn" onclick="document.getElementById('jumpSum').click()">요약</button></div>`;
   const box=()=>host.querySelector('.cm-svgbox').getBoundingClientRect();
   const tip=host.querySelector('.cm-tip');
   const showTip=(i,cx,cy)=>{const r=DATA[i];tip.innerHTML=`<b>${esc(disp(r.region))}</b> ${esc(r.leader.name)}<br>${esc(r.leader.party)} · AI 공약 ${(r.policies||[]).length}건`;tip.hidden=false;const b=box();tip.style.left=(cx-b.left)+'px';tip.style.top=(cy-b.top)+'px';};
