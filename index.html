@@ -36,11 +36,12 @@
     --line:#3A2516;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{
     font-family:"Pretendard Variable","Pretendard","Helvetica Neue",Arial,sans-serif;
     color:var(--ink); background:var(--paper);
-    -webkit-font-smoothing:antialiased; overflow-x:hidden; word-break:keep-all; line-height:1.5;
+    -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; text-size-adjust:100%;
+    overflow-x:hidden; max-width:100%; word-break:keep-all; line-height:1.5;
   }
   .disp{font-family:"Big Shoulders Display","Pretendard Variable","Pretendard",sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.88}
   .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
