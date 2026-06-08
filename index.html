@@ -971,8 +971,8 @@
     <nav class="regnav" id="regnav" aria-label="바로가기"></nav>
     <div class="navjump">
       <button id="jumpSum" type="button">요약</button>
-      <button id="jumpIntro" type="button">소개</button>
       <button id="jumpPress" type="button">출처</button>
+      <button id="jumpIntro" type="button">소개</button>
     </div>
   </div>
   <span class="mlbl mlbl-search">검색</span>
@@ -1018,6 +1018,15 @@
 <main id="catdeck" hidden></main>
 <div id="noresult" hidden>검색 결과가 없습니다.</div>
 
+<!-- ===== 참고: 출처 매체 지도 ===== -->
+<section id="pressmap">
+  <div class="pm-head"><span class="stamp">참고 · APPENDIX</span><h2>108개 공약, <em>어느 언론</em>이 전했나</h2></div>
+  <p class="pm-lead"><span class="pm-lead-1">공약 <span id="pmStatPol">108</span>건에 달린 <b>출처 <span id="pmStatCit">234</span>건</b>은 <b>언론 <span id="pmStatOut">81</span>곳</b>에서 나왔습니다. 가로축은 여러 시·도를 가로지른 <b>전국·준전국 매체</b>, 세로축은 16개 시·도입니다.</span><span class="pm-lead-2">칸이 진할수록 그 매체가 그 지역을 더 많이 인용했다는 뜻입니다. ‘지역지’ 열은 한 시·도에서만 등장한 매체를 합산한 값입니다.</span></p>
+  <div id="pressmx"></div>
+  <div id="pressrank"></div>
+  <p class="pm-foot">※ 같은 사안이 여러 매체에 보도되면 모두 집계했습니다. 매체명·숫자를 누르면 그 매체가 전한 공약 목록과 원문 링크를 볼 수 있습니다. 인용 건수는 ‘보도량’일 뿐, 공약의 규모나 실현 가능성과는 무관합니다.</p>
+</section>
+
 <!-- ===== COLOPHON ===== -->
 <section id="colophon">
   <div class="cl-top"><span class="stamp">프로젝트 소개</span></div>
@@ -1060,15 +1069,6 @@
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
     </a>
   </div>
-</section>
-
-<!-- ===== 참고: 출처 매체 지도 ===== -->
-<section id="pressmap">
-  <div class="pm-head"><span class="stamp">참고 · APPENDIX</span><h2>108개 공약, <em>어느 언론</em>이 전했나</h2></div>
-  <p class="pm-lead"><span class="pm-lead-1">공약 <span id="pmStatPol">108</span>건에 달린 <b>출처 <span id="pmStatCit">234</span>건</b>은 <b>언론 <span id="pmStatOut">81</span>곳</b>에서 나왔습니다. 가로축은 여러 시·도를 가로지른 <b>전국·준전국 매체</b>, 세로축은 16개 시·도입니다.</span><span class="pm-lead-2">칸이 진할수록 그 매체가 그 지역을 더 많이 인용했다는 뜻입니다. ‘지역지’ 열은 한 시·도에서만 등장한 매체를 합산한 값입니다.</span></p>
-  <div id="pressmx"></div>
-  <div id="pressrank"></div>
-  <p class="pm-foot">※ 같은 사안이 여러 매체에 보도되면 모두 집계했습니다. 매체명·숫자를 누르면 그 매체가 전한 공약 목록과 원문 링크를 볼 수 있습니다. 인용 건수는 ‘보도량’일 뿐, 공약의 규모나 실현 가능성과는 무관합니다.</p>
 </section>
 
 <script src="data.js"></script>
@@ -1278,16 +1278,16 @@ function updateActive(){
   const secs=activeSections(),probe=barH()+30; let found=-1;
   const navSum=document.getElementById('jumpSum'),navIntro=document.getElementById('jumpIntro'),navPress=document.getElementById('jumpPress');
   if(navSum)navSum.classList.remove('on'); if(navIntro)navIntro.classList.remove('on'); if(navPress)navPress.classList.remove('on');
-  /* 출처(매체 지도)는 마지막 섹션 — 콜로폰보다 먼저 판정해 '출처' 라벨·활성 유지 */
-  const pmEl=document.getElementById('pressmap');
-  if(pmEl&&pmEl.getBoundingClientRect().top<=probe){
-    pageno.style.display='';pageno.textContent='출처';setMobCount(null);
-    pills.forEach(p=>p.classList.remove('on'));if(navPress)navPress.classList.add('on');curActive=-5;return;
-  }
+  /* 소개(콜로폰)는 마지막 섹션 — 출처(매체 지도)보다 먼저 판정해 '소개' 라벨·활성 유지 */
   const colo=document.getElementById('colophon');
   if(colo&&colo.getBoundingClientRect().top<=probe){
     pageno.style.display='';pageno.textContent='프로젝트 소개';setMobCount(null);
     pills.forEach(p=>p.classList.remove('on'));if(navIntro)navIntro.classList.add('on');curActive=-3;return;
+  }
+  const pmEl=document.getElementById('pressmap');
+  if(pmEl&&pmEl.getBoundingClientRect().top<=probe){
+    pageno.style.display='';pageno.textContent='출처';setMobCount(null);
+    pills.forEach(p=>p.classList.remove('on'));if(navPress)navPress.classList.add('on');curActive=-5;return;
   }
   const exs=document.getElementById('exsum');
   if(exs){const er=exs.getBoundingClientRect();if(er.top<=probe&&er.bottom>probe){
@@ -1590,9 +1590,9 @@ if(coverSearch) coverSearch.addEventListener('input',()=>{
 const coverIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pageno.style.display='none';pageno.textContent='';curActive=-2;}})},{threshold:.5});
 coverIO.observe(document.getElementById('cover'));
 const colo=document.getElementById('colophon');
-if(colo)new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pageno.style.display='';pageno.textContent='프로젝트 소개';curActive=-2;}});},{threshold:.4}).observe(colo);
+if(colo)new IntersectionObserver((es)=>{es.forEach(e=>{const on=e.isIntersecting;document.getElementById('cue').style.display=on?'none':'';if(on){pageno.style.display='';pageno.textContent='프로젝트 소개';curActive=-2;}});},{threshold:.4}).observe(colo);
 const pmIOEl=document.getElementById('pressmap');
-if(pmIOEl)new IntersectionObserver((es)=>{es.forEach(e=>{const on=e.isIntersecting;document.getElementById('cue').style.display=on?'none':'';if(on){pageno.style.display='';pageno.textContent='출처';}});},{threshold:.4}).observe(pmIOEl);
+if(pmIOEl)new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pageno.style.display='';pageno.textContent='출처';}});},{threshold:.4}).observe(pmIOEl);
 
 /* 가벼운 건물 패럴랙스 + 활성 추적 */
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
