@@ -756,6 +756,88 @@
     #landscape{padding:36px 16px 4px}
     .cm-wrap{gap:18px}
   }
+
+  /* ===== 참고: 출처 매체 지도 ===== */
+  #pressmap{min-height:100vh;position:relative;border-top:2px solid var(--ink);scroll-margin-top:70px;background:var(--paper);padding:clamp(40px,6vw,72px) clamp(20px,6vw,96px) 84px}
+  #pressmap .pm-head{display:flex;align-items:center;gap:18px;margin-bottom:20px;flex-wrap:wrap}
+  #pressmap h2{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(26px,3.3vw,48px);line-height:.95;color:var(--ink);letter-spacing:-.01em;margin:0;word-break:keep-all}
+  #pressmap h2 em{color:var(--orange-dk);font-style:normal}
+  .pm-lead{font-size:clamp(14px,1.5vw,17px);color:#5a4730;line-height:1.65;font-weight:600;word-break:keep-all;margin:0 0 30px}
+  .pm-lead b{color:var(--ink);font-weight:800}
+  .pm-lead-1{display:block}
+  .pm-lead-2{display:block;margin-top:0;max-width:900px}
+  .pm-foot{font-size:12px;color:var(--sub);line-height:1.6;margin-top:20px;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .pm-swipe{display:none;font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--sub);margin:-2px 0 10px;text-align:center}
+  .pm-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.pm{border-collapse:collapse;font-size:12px;min-width:780px;width:100%;table-layout:fixed}
+  table.pm th.pm-rh,table.pm td.pm-r{width:62px}
+  table.pm th{font-weight:800;color:var(--sub);padding:6px 2px;text-align:center;vertical-align:bottom;font-size:10px;line-height:1.16;white-space:normal;word-break:keep-all}
+  table.pm th.pm-rh{text-align:left;white-space:nowrap}
+  th.pm-ch{cursor:pointer;border-bottom:1.5px solid var(--ink)}
+  th.pm-ch:hover,th.pm-ch:focus-visible{color:var(--ink);background:var(--paper-dk);outline:none}
+  th.pm-ch.pm-loc,th.pm-ch.pm-sum{cursor:default}
+  th.pm-ch .pm-natl{display:block;font-size:8px;letter-spacing:.04em;color:var(--orange-dk);font-weight:900;margin-top:2px}
+  table.pm td{border:1px solid var(--paper-dk);text-align:center;height:30px;font-weight:800;font-variant-numeric:tabular-nums;padding:0}
+  td.pm-r{cursor:pointer;text-align:left;white-space:nowrap;padding:0 8px 0 6px;font-size:11.5px;background:var(--paper)}
+  td.pm-r:hover,td.pm-r:focus-visible{background:var(--paper-dk);outline:none}
+  .pm-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .pm-dot.dem{background:var(--blue)} .pm-dot.ppp{background:var(--red)}
+  td.pm-c{cursor:default}
+  td.pm-c.clk{cursor:pointer}
+  td.pm-c.clk:hover,td.pm-c.clk:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+  td.pm-c.v0{color:#cdbb93;background:var(--paper)}
+  td.pm-c.v1{background:#F6D9A8;color:var(--sub)}
+  td.pm-c.v2{background:#EFA94A;color:var(--ink)}
+  td.pm-c.v3{background:#D2670C;color:#fff}
+  td.pm-c.pm-loccell.v1{background:#E3D3A6;color:var(--sub)}
+  td.pm-c.pm-loccell.v2{background:#D8BE82;color:var(--ink)}
+  td.pm-c.pm-loccell.v3{background:#B79042;color:#fff}
+  td.pm-tot{background:var(--ink);color:var(--paper)}
+  tr.pmfoot td{font-weight:900}
+  td.pm-coltot{background:#7a6243;color:var(--paper);cursor:pointer}
+  td.pm-coltot:hover{background:var(--ink)}
+  td.pm-coltot.pm-loc-tot{cursor:default}
+  .pm-legend{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;color:var(--sub);flex-wrap:wrap}
+  .pm-legend i{width:18px;height:13px;display:inline-block;border:1px solid var(--paper-dk)}
+  .pm-legend i.v0{background:var(--paper)} .pm-legend i.v1{background:#F6D9A8} .pm-legend i.v2{background:#EFA94A} .pm-legend i.v3{background:#D2670C}
+  .pm-scale{margin-left:auto;font-weight:700}
+  #pressrank{margin-top:clamp(34px,5vw,56px)}
+  .pm-rank-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .pm-rank-head .micro{font-weight:800}
+  .pm-rank-note{font-size:12px;color:var(--sub);line-height:1.5;max-width:680px}
+  .pm-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pm-chip{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:12px;font-weight:700;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:20px;padding:5px 12px 5px 9px;cursor:pointer;transition:background .12s,color .12s}
+  .pm-chip:hover,.pm-chip:focus-visible{background:var(--ink);color:var(--paper);outline:none}
+  .pm-chip b{font-variant-numeric:tabular-nums;font-weight:900}
+  .pm-chip .pm-tag{font-size:8.5px;font-weight:900;letter-spacing:.03em;padding:1px 5px;border-radius:10px;border:1px solid currentColor;color:var(--sub)}
+  .pm-chip.natl .pm-tag{color:var(--orange-dk)}
+  .pm-chip:hover .pm-tag{color:inherit}
+  .pm-more{margin-top:14px;display:none;align-items:center;gap:6px;font-family:inherit;font-size:12.5px;font-weight:800;color:var(--paper);background:var(--ink);border:1.5px solid var(--ink);border-radius:20px;padding:8px 18px;cursor:pointer}
+  .pm-more:hover{background:#291a0c}
+  .pm-more .pm-more-n{font-variant-numeric:tabular-nums;opacity:.75;font-weight:900}
+  #pmModal{position:fixed;inset:0;z-index:130;display:none}
+  #pmModal.on{display:block}
+  .pm-scrim{position:absolute;inset:0;background:rgba(30,18,8,.55)}
+  .pm-sheet{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(580px,92vw);max-height:82vh;background:var(--paper);border:2px solid var(--ink);border-radius:12px;box-shadow:10px 12px 0 rgba(30,18,8,.22);display:flex;flex-direction:column;overflow:hidden}
+  .pm-sheet-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:18px 20px 13px;border-bottom:1.5px solid var(--ink);background:var(--paper-dk)}
+  .pm-sheet-top h3{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(20px,2.4vw,28px);color:var(--ink);margin:0;line-height:1.05;word-break:keep-all}
+  .pm-sheet-top .pm-sub{font-size:12px;color:var(--sub);font-weight:700;margin-top:5px}
+  .pm-x{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .pm-x:hover{background:var(--ink);color:var(--paper)}
+  .pm-list{list-style:none;overflow-y:auto;padding:6px 0;margin:0}
+  .pm-list li{border-bottom:1px solid var(--paper-dk)}
+  .pm-list li:last-child{border-bottom:none}
+  .pm-list a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:11px 20px;transition:background .12s}
+  .pm-list a:hover{background:var(--paper-dk)}
+  .pm-li-rg{flex:none;font-size:11px;font-weight:900;color:var(--orange-dk);width:58px;word-break:keep-all}
+  .pm-li-tt{flex:1;font-size:13px;font-weight:600;line-height:1.4;word-break:keep-all}
+  .pm-li-dt{flex:none;font-size:10.5px;color:var(--sub);font-variant-numeric:tabular-nums}
+  .pm-li-arrow{flex:none;color:var(--sub)}
+  @media(max-width:768px){
+    #pressmap{padding:34px 16px 60px}
+    .pm-chips{gap:6px}
+    .pm-li-dt{display:none}
+  }
 </style>
 </head>
 <body>
@@ -866,7 +948,7 @@
         <button id="goCat" class="cf-modebtn">카테고리별로 보기 <span>8개 분야</span></button>
       </div>
     </div>
-    <span class="stamp cf-stamp">Researched and Designed by Claude Opus 4.8</span>
+    <span class="stamp cf-stamp">Research with Liner · Design with Claude Opus 4.8</span>
   </div>
 </section>
 
@@ -890,6 +972,7 @@
     <div class="navjump">
       <button id="jumpSum" type="button">요약</button>
       <button id="jumpIntro" type="button">소개</button>
+      <button id="jumpPress" type="button">출처</button>
     </div>
   </div>
   <span class="mlbl mlbl-search">검색</span>
@@ -944,7 +1027,7 @@
   <div class="foot3">
     <div><div class="micro">무엇을 담았나</div><p>AI 인프라·산업 전환·인재·시민 일상 등 8개 분야의 공약 108건. 16개 시·도가 내건 약속을 지역별로도, 분야별로도 찾아볼 수 있습니다.</p></div>
     <div><div class="micro">어떻게 검증했나</div><p>후보·당선인의 발언과 언론 보도를 교차 확인하고, 직접인용·보도확인·단일출처 3단계로 신뢰도를 표시했습니다. 모든 항목에 원문 출처 링크를 표기했습니다.</p></div>
-    <div><div class="micro">만든 사람</div><p>AI ROASTING이 기획하고 Claude Opus 4.8이 수집·팩트체크·디자인을 맡았습니다.</p></div>
+    <div><div class="micro">만든 사람</div><p>AI ROASTING이 기획하고, 리서치는 Liner와, 검증·디자인은 Claude Opus 4.8과 함께했습니다.</p></div>
   </div>
 
   <!-- 이렇게 읽으세요 -->
@@ -952,7 +1035,6 @@
     <div class="micro">이렇게 읽으세요</div>
     <ul>
       <li><b>신뢰도 배지</b><span>직접인용(본인 발언) · 보도확인(복수 매체) · 단일출처(한 곳뿐, 주의) 순으로 근거가 약해집니다.</span></li>
-      <li><b>팩트체크 배지</b><span>링크 생존, 복수매체 교차, 반증 시도 생존 세 가지를 표시합니다. 켜진 항목이 많을수록 더 많은 검증을 거친 공약입니다.</span></li>
       <li><b>출처 링크</b><span>모든 카드의 링크를 눌러 원문에서 직접 확인할 수 있습니다. 의심되면 링크부터 보세요.</span></li>
     </ul>
   </div>
@@ -978,6 +1060,15 @@
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
     </a>
   </div>
+</section>
+
+<!-- ===== 참고: 출처 매체 지도 ===== -->
+<section id="pressmap">
+  <div class="pm-head"><span class="stamp">참고 · APPENDIX</span><h2>108개 공약, <em>어느 언론</em>이 전했나</h2></div>
+  <p class="pm-lead"><span class="pm-lead-1">공약 <span id="pmStatPol">108</span>건에 달린 <b>출처 <span id="pmStatCit">234</span>건</b>은 <b>언론 <span id="pmStatOut">81</span>곳</b>에서 나왔습니다. 가로축은 여러 시·도를 가로지른 <b>전국·준전국 매체</b>, 세로축은 16개 시·도입니다.</span><span class="pm-lead-2">칸이 진할수록 그 매체가 그 지역을 더 많이 인용했다는 뜻입니다. ‘지역지’ 열은 한 시·도에서만 등장한 매체를 합산한 값입니다.</span></p>
+  <div id="pressmx"></div>
+  <div id="pressrank"></div>
+  <p class="pm-foot">※ 같은 사안이 여러 매체에 보도되면 모두 집계했습니다. 매체명·숫자를 누르면 그 매체가 전한 공약 목록과 원문 링크를 볼 수 있습니다. 인용 건수는 ‘보도량’일 뿐, 공약의 규모나 실현 가능성과는 무관합니다.</p>
 </section>
 
 <script src="data.js"></script>
@@ -1185,8 +1276,14 @@ window.addEventListener('resize',updateNavVisibility,{passive:true});
 function updateActive(){
   updateNavVisibility();
   const secs=activeSections(),probe=barH()+30; let found=-1;
-  const navSum=document.getElementById('jumpSum'),navIntro=document.getElementById('jumpIntro');
-  if(navSum)navSum.classList.remove('on'); if(navIntro)navIntro.classList.remove('on');
+  const navSum=document.getElementById('jumpSum'),navIntro=document.getElementById('jumpIntro'),navPress=document.getElementById('jumpPress');
+  if(navSum)navSum.classList.remove('on'); if(navIntro)navIntro.classList.remove('on'); if(navPress)navPress.classList.remove('on');
+  /* 출처(매체 지도)는 마지막 섹션 — 콜로폰보다 먼저 판정해 '출처' 라벨·활성 유지 */
+  const pmEl=document.getElementById('pressmap');
+  if(pmEl&&pmEl.getBoundingClientRect().top<=probe){
+    pageno.style.display='';pageno.textContent='출처';setMobCount(null);
+    pills.forEach(p=>p.classList.remove('on'));if(navPress)navPress.classList.add('on');curActive=-5;return;
+  }
   const colo=document.getElementById('colophon');
   if(colo&&colo.getBoundingClientRect().top<=probe){
     pageno.style.display='';pageno.textContent='프로젝트 소개';setMobCount(null);
@@ -1328,7 +1425,131 @@ function renderCountMap(){
     b.addEventListener('mouseleave',()=>{if(path)path.classList.remove('cm-hi');});
   });
 }
-renderMatrix(); renderCountMap();
+/* ---- 참고: 출처 매체 지도 (지역×매체 히트맵 + 전체 매체 랭킹 + 팝업) ---- */
+function renderPressMap(){
+  const host=document.getElementById('pressmx'); if(!host) return;
+  const O={};  /* 매체명 -> {count, regions:Set(ri), items:[{ri,region,title,date,url}]} */
+  DATA.forEach((d,ri)=>{(d.policies||[]).forEach(p=>{(p.sources||[]).forEach(s=>{
+    const name=(s.outlet||'미상').trim();
+    const e=O[name]||(O[name]={count:0,regions:new Set(),items:[]});
+    e.count++; e.regions.add(ri);
+    e.items.push({ri,region:d.region,title:p.title,date:s.date||'',url:s.url||''});
+  });});});
+  const names=Object.keys(O);
+  const polEl=document.getElementById('pmStatPol'); if(polEl) polEl.textContent=DATA.reduce((a,d)=>a+(d.policies||[]).length,0);
+  const citEl=document.getElementById('pmStatCit'); if(citEl) citEl.textContent=names.reduce((a,n)=>a+O[n].count,0);
+  const outEl=document.getElementById('pmStatOut'); if(outEl) outEl.textContent=names.length;
+  const lvl=n=>n<=0?0:n===1?1:n===2?2:3;
+  /* 열 = 2개 이상 시·도를 가로지른 전국·준전국 매체, 지역 폭→인용수 순 상위 12 */
+  const cols=names.filter(n=>O[n].regions.size>=2)
+    .sort((a,b)=>O[b].regions.size-O[a].regions.size||O[b].count-O[a].count||a.localeCompare(b,'ko'))
+    .slice(0,12);
+  const colSet=new Set(cols);
+  const head='<th class="pm-rh" scope="col">지역＼매체</th>'
+    +cols.map(n=>`<th class="pm-ch" data-outlet="${esc(n)}" role="button" tabindex="0" aria-label="${esc(n)} 취재 공약 보기">${esc(n)}<span class="pm-natl">${O[n].regions.size}곳</span></th>`).join('')
+    +'<th class="pm-ch pm-loc" scope="col">지역지<span class="pm-natl" style="color:var(--sub)">단일</span></th>'
+    +'<th class="pm-ch pm-sum" scope="col">계</th>';
+  const colTot=cols.map(()=>0); let locTot=0, grand=0;
+  const rows=DATA.map((d,ri)=>{
+    let rowNatl=0;
+    const cells=cols.map((n,ci)=>{
+      const c=O[n].items.filter(it=>it.ri===ri).length;
+      colTot[ci]+=c; rowNatl+=c;
+      if(c<=0) return '<td class="pm-c v0" aria-disabled="true">·</td>';
+      return `<td class="pm-c clk v${lvl(c)}" data-outlet="${esc(n)}" role="button" tabindex="0" aria-label="${esc(disp(d.region))} ${esc(n)} ${c}건 취재 공약 보기">${c}</td>`;
+    }).join('');
+    const allInRg=(d.policies||[]).reduce((a,p)=>a+((p.sources||[]).length),0);
+    const loc=allInRg-rowNatl; locTot+=loc; grand+=allInRg;
+    const locCell=loc<=0
+      ? '<td class="pm-c pm-loccell v0" aria-disabled="true">·</td>'
+      : `<td class="pm-c pm-loccell clk v${lvl(loc)}" data-loc="${ri}" role="button" tabindex="0" aria-label="${esc(disp(d.region))} 지역지 ${loc}건 보기">${loc}</td>`;
+    return `<tr><td class="pm-r" role="button" tabindex="0" data-ri="${ri}" aria-label="${esc(disp(d.region))} 지역으로 이동"><i class="pm-dot ${cssCls(d.leader.party)}"></i>${esc(SHORT[d.region]||disp(d.region))}</td>${cells}${locCell}<td class="pm-c pm-tot">${allInRg}</td></tr>`;
+  }).join('');
+  const foot=`<tr class="pmfoot"><td class="pm-r">합계</td>`
+    +cols.map((n,ci)=>`<td class="pm-c pm-coltot" data-outlet="${esc(n)}" role="button" tabindex="0" aria-label="${esc(n)} 취재 공약 보기">${colTot[ci]}</td>`).join('')
+    +`<td class="pm-c pm-coltot pm-loc-tot">${locTot}</td><td class="pm-c pm-tot">${grand}</td></tr>`;
+  host.innerHTML=`<div class="pm-swipe" aria-hidden="true">↔ 좌우로 넘겨 더 보기</div>
+    <div class="pm-scroll"><table class="pm"><thead><tr>${head}</tr></thead><tbody>${rows}${foot}</tbody></table></div>
+    <div class="pm-legend"><span>인용 적음</span><i class="v0"></i><i class="v1"></i><i class="v2"></i><i class="v3"></i><span>많음</span><span class="pm-scale">매체명·숫자를 누르면 취재한 공약을 볼 수 있어요 →</span></div>`;
+  (function(){const sc=host.querySelector('.pm-scroll'),hint=host.querySelector('.pm-swipe');if(!sc||!hint)return;const upd=()=>{if(sc.dataset.scrolled)return;hint.style.display=(sc.scrollWidth-sc.clientWidth>6)?'block':'none';};upd();window.addEventListener('resize',upd);sc.addEventListener('scroll',()=>{if(sc.scrollLeft>8){hint.style.display='none';sc.dataset.scrolled='1';}},{passive:true});})();
+  host.querySelectorAll('td.pm-r[data-ri]').forEach(el=>{
+    const i=+el.dataset.ri, go=()=>jumpTo('region',spreads[i]);
+    el.onclick=go; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  });
+  host.querySelectorAll('[data-outlet]').forEach(el=>{
+    const n=el.dataset.outlet, go=()=>openPressPopup(n,O[n]);
+    el.onclick=go; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  });
+  host.querySelectorAll('[data-loc]').forEach(el=>{
+    const ri=+el.dataset.loc, go=()=>openLocalPopup(ri,O,colSet);
+    el.onclick=go; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  });
+  const rankHost=document.getElementById('pressrank');
+  if(rankHost){
+    const ranked=names.slice().sort((a,b)=>O[b].count-O[a].count||O[b].regions.size-O[a].regions.size||a.localeCompare(b,'ko'));
+    const natlN=names.filter(n=>O[n].regions.size>=2).length;
+    const chips=ranked.map(n=>{
+      const e=O[n], natl=e.regions.size>=2;
+      return `<button class="pm-chip ${natl?'natl':''}" data-outlet="${esc(n)}" type="button" aria-label="${esc(n)} ${e.count}건, 취재 공약 보기"><span class="pm-tag">${natl?e.regions.size+'곳':'지역'}</span>${esc(n)}<b>${e.count}</b></button>`;
+    }).join('');
+    rankHost.innerHTML=`<div class="pm-rank-head"><span class="micro">전체 출처 매체 ${names.length}곳</span><span class="pm-rank-note">‘N곳’ 배지는 여러 시·도를 가로질러 보도한 전국·준전국 매체(${natlN}곳), ‘지역’은 한 시·도에서만 등장한 매체입니다. 인용 많은 순.</span></div><div class="pm-chips">${chips}</div><button class="pm-more" type="button">더 보기 <span class="pm-more-n"></span></button>`;
+    rankHost.querySelectorAll('.pm-chip[data-outlet]').forEach(el=>el.addEventListener('click',()=>openPressPopup(el.dataset.outlet,O[el.dataset.outlet])));
+    /* 모바일: 매체 20개씩 단계 노출 (데스크톱은 전체 노출) */
+    const moreBtn=rankHost.querySelector('.pm-more'), STEP=20;
+    function pmChipPaging(){
+      const isMobile=window.matchMedia('(max-width:768px)').matches;
+      const chips=[...rankHost.querySelectorAll('.pm-chip')];
+      if(!moreBtn) return;
+      if(!isMobile){ chips.forEach(c=>c.style.display=''); moreBtn.style.display='none'; return; }
+      let shown=parseInt(moreBtn.dataset.shown||'0',10)||Math.min(STEP,chips.length);
+      const render=()=>{
+        chips.forEach((c,i)=>{c.style.display=i<shown?'':'none';});
+        moreBtn.dataset.shown=shown;
+        if(shown>=chips.length){ moreBtn.style.display='none'; }
+        else{ moreBtn.style.display='inline-flex'; moreBtn.querySelector('.pm-more-n').textContent='+'+Math.min(STEP,chips.length-shown); }
+      };
+      render();
+      moreBtn.onclick=()=>{ shown=Math.min(shown+STEP,chips.length); render(); };
+    }
+    pmChipPaging();
+    window.addEventListener('resize',pmChipPaging,{passive:true});
+  }
+}
+function ensurePmModal(){
+  let m=document.getElementById('pmModal'); if(m) return m;
+  m=document.createElement('div'); m.id='pmModal';
+  m.innerHTML='<div class="pm-scrim" data-close="1"></div><div class="pm-sheet" role="dialog" aria-modal="true" aria-labelledby="pmTitle"><div class="pm-sheet-top"><div><h3 id="pmTitle"></h3><div class="pm-sub" id="pmSub"></div></div><button class="pm-x" type="button" aria-label="닫기" data-close="1">×</button></div><ul class="pm-list" id="pmList"></ul></div>';
+  document.body.appendChild(m);
+  m.addEventListener('click',e=>{if(e.target.dataset.close)closePmModal();});
+  return m;
+}
+function closePmModal(){const m=document.getElementById('pmModal');if(m)m.classList.remove('on');document.body.style.overflow='';}
+function pmRows(items,labelFn){
+  return items.slice().sort((a,b)=> (a.ri-b.ri) || (a.date<b.date?1:a.date>b.date?-1:0)).map(it=>{
+    const dt=esc((it.date||'').replace(/^20/,''));
+    return `<li><a href="${esc(it.url)}" target="_blank" rel="noopener"><span class="pm-li-rg">${esc(labelFn(it))}</span><span class="pm-li-tt">${esc(it.title)}</span><span class="pm-li-dt">${dt}</span><span class="pm-li-arrow">↗</span></a></li>`;
+  }).join('');
+}
+function openPressPopup(name,rec){
+  if(!rec) return;
+  const m=ensurePmModal(), rgN=rec.regions.size;
+  m.querySelector('#pmTitle').textContent=name;
+  m.querySelector('#pmSub').textContent=`출처 ${rec.count}건 · ${rgN}개 시·도`+(rgN>=2?' · 전국·준전국 매체':' · 지역 매체');
+  m.querySelector('#pmList').innerHTML=pmRows(rec.items,it=>SHORT[it.region]||disp(it.region));
+  m.classList.add('on'); document.body.style.overflow='hidden';
+}
+function openLocalPopup(ri,O,colSet){
+  const region=DATA[ri].region, items=[];
+  Object.keys(O).forEach(n=>{ if(colSet.has(n)) return; O[n].items.forEach(it=>{ if(it.ri===ri) items.push(Object.assign({outlet:n},it)); }); });
+  const m=ensurePmModal(), outlets=[...new Set(items.map(it=>it.outlet))];
+  m.querySelector('#pmTitle').textContent=(SHORT[region]||disp(region))+' · 지역지';
+  m.querySelector('#pmSub').textContent=`${disp(region)}에서만 등장한 매체 ${outlets.length}곳 · 출처 ${items.length}건`;
+  m.querySelector('#pmList').innerHTML=pmRows(items,it=>it.outlet);
+  m.classList.add('on'); document.body.style.overflow='hidden';
+}
+addEventListener('keydown',e=>{if(e.key==='Escape')closePmModal();});
+
+renderMatrix(); renderCountMap(); renderPressMap();
 /* 표지 통계 데이터 드리븐(수치 재발 방지) */
 (function(){var sp=document.getElementById('statPol');if(sp)sp.textContent=DATA.reduce((a,d)=>a+(d.policies||[]).length,0);}());
 
@@ -1369,7 +1590,9 @@ if(coverSearch) coverSearch.addEventListener('input',()=>{
 const coverIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pageno.style.display='none';pageno.textContent='';curActive=-2;}})},{threshold:.5});
 coverIO.observe(document.getElementById('cover'));
 const colo=document.getElementById('colophon');
-if(colo)new IntersectionObserver((es)=>{es.forEach(e=>{const on=e.isIntersecting;document.getElementById('cue').style.display=on?'none':'';if(on){pageno.style.display='';pageno.textContent='프로젝트 소개';curActive=-2;}});},{threshold:.4}).observe(colo);
+if(colo)new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pageno.style.display='';pageno.textContent='프로젝트 소개';curActive=-2;}});},{threshold:.4}).observe(colo);
+const pmIOEl=document.getElementById('pressmap');
+if(pmIOEl)new IntersectionObserver((es)=>{es.forEach(e=>{const on=e.isIntersecting;document.getElementById('cue').style.display=on?'none':'';if(on){pageno.style.display='';pageno.textContent='출처';}});},{threshold:.4}).observe(pmIOEl);
 
 /* 가벼운 건물 패럴랙스 + 활성 추적 */
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1412,6 +1635,7 @@ document.addEventListener('click',e=>{
 
 /* ---- 콜로폰으로 즉시 이동 (먼 거리라 smooth는 중간에 끊겨 instant 사용) ---- */
 function gotoColophon(){const el=document.getElementById('colophon');if(!el)return;const pad=parseFloat(getComputedStyle(el).paddingTop)||0;const y=el.getBoundingClientRect().top+window.scrollY-barH()+pad-40;window.scrollTo({top:Math.max(0,y),behavior:'instant'});}
+function gotoPress(){const el=document.getElementById('pressmap');if(!el)return;const pad=parseFloat(getComputedStyle(el).paddingTop)||0;const y=el.getBoundingClientRect().top+window.scrollY-barH()+pad-40;window.scrollTo({top:Math.max(0,y),behavior:'instant'});}
 const projBtn=document.querySelector('#masthead .projpill');
 if(projBtn) projBtn.addEventListener('click',e=>{e.preventDefault();gotoColophon();});
 
@@ -1438,6 +1662,8 @@ const js=document.getElementById('jumpSum');
 if(js) js.addEventListener('click',()=>{const el=document.getElementById('exsum');if(!el)return;const tp=document.getElementById('top');const off=(tp&&getComputedStyle(tp).position==='sticky')?tp.getBoundingClientRect().height:0;const pad=parseFloat(getComputedStyle(el).paddingTop)||0;window.scrollTo({top:Math.max(0,el.offsetTop-off+pad-40),behavior:'instant'});});
 const ji=document.getElementById('jumpIntro');
 if(ji) ji.addEventListener('click',gotoColophon);
+const jpr=document.getElementById('jumpPress');
+if(jpr) jpr.addEventListener('click',gotoPress);
 
 /* ---- 모바일 햄버거 드로어 ---- */
 const hamb=document.getElementById('hamburger');
@@ -1448,7 +1674,7 @@ if(hamb)hamb.addEventListener('click',()=>setMenu(!document.body.classList.conta
 if(scrim)scrim.addEventListener('click',closeMenu);
 /* 지역·카테고리 핀이나 요약/소개를 누르면 닫고 이동 (보기방식 토글은 유지) */
 regnav.addEventListener('click',e=>{if(e.target.closest('.pill'))closeMenu();});
-['jumpSum','jumpIntro','tohome'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',closeMenu);});
+['jumpSum','jumpIntro','jumpPress','tohome'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',closeMenu);});
 addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 
 /* ---- 정책 카드 접기/펼치기 (모바일 전용) ---- */
