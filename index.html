@@ -539,6 +539,9 @@
   .pol-body{display:contents}
 
   @media (max-width:768px){
+    /* 모바일: 닫힌 드로어 등 화면 밖 요소가 iOS에서 가로 스크롤을 만들지 않도록 페이지 폭을 강제로 클리핑.
+       overflow:clip은 스크롤 컨테이너를 만들지 않아 세로 스크롤·sticky에 영향 없음(iOS 16+ 지원). */
+    html{overflow-x:clip}
     #hamburger{display:flex}
     #drawerScrim{display:block;position:fixed;inset:0;z-index:65;background:rgba(58,37,22,.42);
       opacity:0;pointer-events:none;transition:opacity .3s}
