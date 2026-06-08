@@ -41,7 +41,7 @@
     font-family:"Pretendard Variable","Pretendard","Helvetica Neue",Arial,sans-serif;
     color:var(--ink); background:var(--paper);
     -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; text-size-adjust:100%;
-    overflow-x:hidden; max-width:100%; word-break:keep-all; line-height:1.5;
+    overflow-x:hidden; max-width:100%; word-break:keep-all; overflow-wrap:anywhere; line-height:1.5;
   }
   .disp{font-family:"Big Shoulders Display","Pretendard Variable","Pretendard",sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.88}
   .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
@@ -461,7 +461,7 @@
     border-left:3px solid var(--ink);padding-left:12px;font-weight:600;white-space:nowrap}
   #exsum .ex-note b{color:var(--ink);font-weight:800}
   #exsum .ex-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:clamp(30px,4vw,48px)}
-  #exsum .ex-list li{display:block;border:2px solid var(--ink);background:var(--paper);
+  #exsum .ex-list li{display:block;min-width:0;border:2px solid var(--ink);background:var(--paper);
     box-shadow:6px 8px 0 rgba(58,37,22,.13);padding:20px clamp(18px,2.4vw,26px) 22px;position:relative;
     transition:transform .22s cubic-bezier(.34,.8,.3,1),box-shadow .22s cubic-bezier(.34,.8,.3,1)}
   #exsum .ex-list li:hover{transform:translate(-3px,-5px)}
