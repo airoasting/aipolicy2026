@@ -353,6 +353,7 @@
   .staffline b{color:var(--ink)}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch}
   .pol{border:2px solid var(--ink);background:var(--paper);position:relative;padding:0 0 18px;
+    min-width:0;
     box-shadow:6px 8px 0 rgba(58,37,22,.10);display:flex;flex-direction:column;scroll-margin-top:84px;
     transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s cubic-bezier(.2,.8,.2,1)}
   .pol:hover{transform:translate(-2px,-5px);box-shadow:11px 15px 0 rgba(58,37,22,.18)}
@@ -533,7 +534,7 @@
   .search-go{display:none}
 
   /* 정책 카드 헤더(버튼화) — 데스크톱은 기존 모양 유지, 본문은 contents로 평탄화 */
-  .pol .pin{font:inherit;color:inherit;background:none;border:none;width:100%;text-align:left;cursor:default}
+  .pol .pin{font:inherit;color:inherit;background:none;border:none;width:100%;min-width:0;text-align:left;cursor:default}
   .pol .pin-main{flex:1;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;min-width:0}
   .pol-chev{display:none}
   .pol-body{display:contents}
