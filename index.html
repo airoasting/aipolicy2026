@@ -349,8 +349,6 @@
   .pl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
     border-bottom:2.5px solid var(--ink);padding-bottom:14px;margin-bottom:30px;flex-wrap:wrap}
   .pl-head .t{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(26px,3.4vw,46px);line-height:.9}
-  .staffline{font-size:13px;color:#5a4730;margin-bottom:26px;max-width:80ch;line-height:1.6}
-  .staffline b{color:var(--ink)}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch}
   .pol{border:2px solid var(--ink);background:var(--paper);position:relative;padding:0 0 18px;
     min-width:0;
@@ -1149,11 +1147,6 @@ function polCard(p,i,origin,showOrigin,anchorId){
     ${badge?`<div class="foot">${badge}</div>`:''}
     ${src?`<div class="src">${src}</div>`:''}</div></article>`;
 }
-function staffLine(d){
-  if(!d.ai_staff||!d.ai_staff.length) return `<div class="staffline">AI 정책 담당: 취임 전이라 담당 인물이 아직 공식 발표되지 않았습니다.</div>`;
-  const items=d.ai_staff.map(s=>`<b>${esc(s.name||'미상')}</b>(${esc(s.status||'')}, ${esc(s.role||'')})`).join(' · ');
-  return `<div class="staffline"><span class="micro" style="margin-right:8px">AI 정책 담당</span>${items}</div>`;
-}
 function spread(d,i){
   const cls=cssCls(d.leader.party);
   const duo=cls==='ppp'?'duo-red':'duo-blue';
@@ -1190,7 +1183,6 @@ function spread(d,i){
     </div>
     <div class="pledges">
       <div class="pl-head"><div class="t disp">AI 정책 <em>${pols.length}</em>건</div><span class="micro">${esc(disp(d.region))} · ${esc(d.leader.name)}</span></div>
-      ${staffLine(d)}
       <div class="grid">${cards||'<div class="pol c-blue"><div class="topstrip"></div><p style="padding:18px">공개된 AI 정책 데이터가 아직 없습니다.</p></div>'}</div>
     </div>
   </section>`;
